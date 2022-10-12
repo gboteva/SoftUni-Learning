@@ -1,0 +1,32 @@
+        1). First task is called "Train". 
+The task has a goal to display the status of each wagon in the form of an array and the total number of people in all wagons from a given number of wagons and people boarding each wagon.
+
+        2). Next task is called "Common Elements"
+Tha task has a goal to display the common elements in  two given arrays.    
+        
+        3).  Next task is called "Zig-Zag Arrays"
+The program creates 2 arrays from n-counts pairs of integer, using Zig-zag method. 
+From first pair, first integer goes to first array, second integer goes to second array. Next pair of integer is used inversely - first int - in second array, second int - in first array.
+        
+        4).  Next task is called "Array Rotation"
+This program receives an array and the number of rotations you have to perform (the first element goes at the end) and print the resulting array.
+
+        5). Next task is called "Top Integers"
+The program find all the top integers in an array. A top integer is an integer that is bigger than all the elements to its right.
+
+        6). Next task is called "Equal Sums"
+This program determines if there exists an element in the array such that the sum of the elements on its left is equal to the sum of the elements on its right. If there are no elements to the left/right, their sum is considered to be 0. The program print the index that satisfies the required condition or "no" if there is no such index.
+      
+        7). Next task is called "Max Sequence of Equal Elements"
+This program finds the longest sequence of equal elements in an array of integers. If several longest sequences exist, prints the leftmost one.
+       
+        8). Next task is called "8.	Magic Sum"
+The program prints all unique pairs in an array of integers whose sum is equal to a given number (magic number) .       
+       
+        9). Next task is called "Array Modifier"
+The program modify the elements of given array with integers after receiving  different commands.       
+
+        10).  The final task is called "Treasure Hunt"
+This program manages the state of the treasure chest (array) along the way. On the first line receives the initial loot of the treasure chest, which is a string of items separated by a "|". After that, until specific command, the program receives different commands, which manipulating treasure chest (array). 
+
+        P.S. In every folder with code has a word file with detailed description of tasks and test data.

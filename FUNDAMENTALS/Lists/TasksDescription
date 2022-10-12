@@ -1,0 +1,35 @@
+        1.	Folder named “Ex” contains 10 files with source code, presenting completed tasks of exercises.
+            1.1.	 First task is named “Train”.
+Given list of integers, representing the number of passengers in each wagon, has manipulated witch given commands. Nothing interesting. :)
+             1.2.	Second task is named “Change List”
+This task is almost like the previous one. Nothing interesting too. :)
+            1.3.	Next task Is named “House Party”
+The program works with a guest list by adding or removing guests on a command and writing to the console the action it has performed. Finally, it shows the final list.
+            1.4.	Next task Is named “List Operations”
+This program manipulated list of integers by given commands and given indexes.
+            1.5.	Next task Is named “Bomb Numbers”
+This program read a sequence of numbers and a special bomb number with a certain power. After that, finds the bomb number and eliminate his neighbors from left and right using bomb power.
+            1.6.	Next task Is named “Cards Game”
+This program presenting a card games using list of integers.
+            1.7.	Next task Is named “Append Arrays”
+This program gets an array of integers and adds each number of list, arranging them in reverse order of the input received.
+            1.8.	Next task Is named “Anonymous Threat” 
+This program receive a string sequence and by given commands and indexes, merge or divide part of it.
+            1.9.	Next task Is named “Pokémon Don't Go”
+This program receive a integer sequence and by given commands and indexes, increase or decrease value of given index or of all elements.
+            1.10.	The final task is named “SoftUni Course Planning”
+This program receive  the initial schedule of lessons and exercises and by given commands add, insert, remove or swap position of current lesson or exercise or both.
+      
+      2.	Folder named MoreEx contains 5 files with source code, presenting completed tasks of “More exercises"
+            2.1.	First task is named “Messaging”.
+This program simulating writing SMS by old phone with buttons.
+            2.2.	Next task Is named “Car Race”
+This program calculate the winner of a car race by given an array of numbers. Each element of the array represents the time needed to pass through that step (the index). The first racer starts from the left side and the other one starts from the right side. The middle index of the array is the finish line.
+            2.3.	Next task Is named “Take/Skip Rope”
+This program reads a string and extracting a hidden message by given algorithm.
+            2.4.	Next task Is named “Mixed Up Lists”
+This program mixes up two lists by some given rules.
+            2.5.	Next task Is named “Drum Set”
+This program simulate drum's amortization by given hit power, representing by list.
+
+  P.S. In every folder with code has a word file with detailed description of tasks and test data.

@@ -1,0 +1,51 @@
+
+1.	Folder named “Ex” contains 10 files with source code, presenting completed tasks of exercises
+
+1.1.	First task is named “Smallest of Three Numbers”
+The program present method, that print the smallest of three integer numbers.
+
+1.2.	Next task is named “Vowels Count”
+The program present method, that receives a single string and prints the count of the vowels.
+
+1.3.	Next task is named “Characters in Range”
+The program present method, that receives two characters and prints on a single line all the characters in between them according to ASCII.
+
+1.4.	Next task is named “Password Validator”
+The program checks if a given password is valid by a given rules.
+
+1.5.	Next task is named “Add and Subtract”
+The program receive 3 integers, get the sum of the first two integers and subtracts the third integer from the result through two methods.
+
+1.6.	Next task is named “Middle Characters”
+The program receive a single string and using one method prints the middle character.
+
+1.7.	Next task is named “NxN Matrix”
+The program receive a single integer N and prints NXN matrix with that number.
+
+1.8.	Next task is named “Factorial Division”
+The program calculate factorial of two numbers. Divide the first result by the second and prints the division.
+
+1.9.	Next task is named “Palindrome Integers”
+The program reads a positive integer numbers. For each number prints whether the number is palindrome or not.
+
+1.10.	Next task is named “Top Number”
+The program reads an integer n from the console, finds all top numbers in the range [1 … n] and print them.
+1.11.	Next task is named “Array Manipulator”
+The program manipulate a given arrays by given commands using different methods.
+
+2.	Folder named MoreEx contains 5 files with source code, presenting completed tasks of “More exercises".
+
+2.1.	First task is named “Data Types”
+The program recognized data type of given input and according of type performs various mathematical operations.
+2.2.	Next task is named “Center Point”
+The program, by giving the coordinates of two points in a Cartesian coordinate system, prints the point that is closest to the center of the coordinate system.
+2.3.	Next task is named “Longer Line”
+The program, by giving the coordinates of four points in the 2D plan, prints the longer line betwen every pairs points.
+2.4.	Next task is named “Tribonacci Sequence”
+The program, prints numbers from the Tribonacci sequence by a given number.
+2.5.	Next task is named “Multiplication Sign”
+The program receive three numbers and finds the sign of result of their multiplication without multiplying
+
+
+
+P.S. In every folder with code has a word file with detailed description of tasks and test data.

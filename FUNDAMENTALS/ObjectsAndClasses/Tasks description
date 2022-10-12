@@ -1,0 +1,25 @@
+
+1.	First task is named “Advertisement Message”
+The program generates random fake advertisement messages.
+
+2.	Next task is named “Articles”
+The program creates a class with constructor and methods to edit content, add and rename info, and prints output by override ToString method.
+
+3.	Next task is named “Opinion Poll”
+The program creates a class with personal information to people, and print all people whos's age more than 30.
+
+4.	Next task is named “Articles 2.0”
+The program rewrites the second task.
+
+5.	Next task is named “Students”
+The program receives n count of students and orders them by grade (in descending). Each student have a first name (string), last name (string), and grade (a floating-point number).
+
+6.	Next task is named “Vehicle Catalogue”
+The program make a catalog for vehicles.
+
+7.	Next task is named “Order by Age”
+The program receive unknown numbers of input by arrays with 3 elements, representing personal information. When input stop, in console show the given personal information ordered by people age.
+
+
+
+P.S. In every folder with code has a word file with detailed description of tasks and test data.
