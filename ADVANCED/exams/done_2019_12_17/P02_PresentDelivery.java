@@ -3,111 +3,83 @@ package exams.firstExam;
 import java.util.Scanner;
 
 public class P02_PresentDelivery {
+    private static int santaRow;
+    private static int santaCol;
+    private static int countOfPresents;
+    private static int goodKidsWithPresents;
+    private static boolean isOut = false;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int countOfPresents = Integer.parseInt(scanner.nextLine());
-        int countRow = Integer.parseInt(scanner.nextLine());
-        String[][] matrix = new String[countRow][countRow];
 
-        fillTheMatrix(scanner, matrix);
+        countOfPresents = Integer.parseInt(scanner.nextLine());
+
+        int size = Integer.parseInt(scanner.nextLine());
+        String[][] matrix = new String[size][size];
+
+        for (int i = 0; i < size; i++) {
+            String[] row = scanner.nextLine().split("\\s+");
+            matrix[i] = row;
+            for (int j = 0; j < row.length; j++) {
+                if (row[j].equals("S")) {
+                    santaRow = i;
+                    santaCol = j;
+                }
+            }
+        }
 
         String command = scanner.nextLine();
-        int countHappyKids = 0;
-        boolean isOutside = false;
-        boolean isPresentOver = false;
 
+        goodKidsWithPresents = 0;
         while (!command.equals("Christmas morning")) {
-            int santaRowInitial = getSantaRow(matrix);
-            int santaColInitial = getSantaCol(matrix);
-
-            int santaRow = santaRowInitial;
-            int santaCol = santaColInitial;
-            matrix[santaRow][santaCol] = "-";
 
             switch (command) {
                 case "up":
-                    santaRow -= 1;
+                    move(matrix, -1, 0);
                     break;
                 case "down":
-                    santaRow += 1;
-                    break;
-                case "right":
-                    santaCol += 1;
+                    move(matrix, 1, 0);
                     break;
                 case "left":
-                    santaCol -= 1;
+                    move(matrix, 0, -1);
+                    break;
+                case "right":
+                    move(matrix, 0, 1);
                     break;
             }
-            if (isOutside(matrix, santaRow, santaCol)) {
-                //ако излезе от полето и няма S?
-                matrix[santaRowInitial][santaColInitial] = "S";
-                isOutside = true;
+
+            if (isOut) {
                 break;
             }
 
-
-            if (matrix[santaRow][santaCol].equals("V")) {
-                countOfPresents--;
-                countHappyKids++;
-            } else if (matrix[santaRow][santaCol].equals("-")) {
-                matrix[santaRow][santaCol] = "S";
-                command = scanner.nextLine();
-                continue;
-            } else if (matrix[santaRow][santaCol].equals("C")) {
-                int up = santaRow-1;
-                int down = santaRow+1;
-                int left = santaCol-1;
-                int right = santaCol+1;
-                if (up<0 || down>= matrix.length || left<0 || right>=matrix.length){
-                    matrix[santaRow][santaCol] = "S";
-                    isOutside=true;
-                    break;
-                }else {
-                    countOfPresents=countOfPresents-3;
-                    countHappyKids = countHappyKids+3;
-                }
-                goUp(matrix, santaRow, santaCol);
-                goDown(matrix, santaRow, santaCol);
-                goLeft(matrix, santaRow, santaCol);
-                goRight(matrix, santaRow, santaCol);
-            }
-
-            matrix[santaRow][santaCol] = "S";
-
-            if (countOfPresents == 0) {
-                isPresentOver = true;
+            if (countOfPresents <= 0) {
                 break;
             }
+
 
             command = scanner.nextLine();
         }
+        if (isOut || countOfPresents <= 0) {
+            System.out.println("Santa ran out of presents!");
+        }
 
-        //ако е излязъл от полето:
-        // ако е свършил подаръците:
-            if ( isPresentOver || isOutside){
-                System.out.println("Santa ran out of presents!");
-            }
-
-            printMatrix(matrix);
-
-            if (!isThereMoreGoodKids(matrix)){
-                //ако е дал подаръци на всички добри деца
-                System.out.printf("Good job, Santa! %d happy nice kid/s.%n", countHappyKids);
-            } else {
-                // ако са останали добри деца без подаръци;
-                int countLeftGoodKids = getLeftGoodKids(matrix);
-                System.out.printf("No presents for %d nice kid/s.%n", countLeftGoodKids);
-            }
+        print(matrix);
 
 
+        if (isGoodKidWithoutPresent(matrix)) {
+            int countLeftKids = getCount(matrix);
+            System.out.println("No presents for " + countLeftKids + " nice kid/s.");
+        } else {
+            System.out.println("Good job, Santa! " + goodKidsWithPresents + " happy nice kid/s.");
+        }
 
     }
 
-    private static int getLeftGoodKids(String[][] matrix) {
+    private static int getCount(String[][] matrix) {
         int count = 0;
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j].equals("V")){
+        for (int r = 0; r < matrix.length; r++) {
+            for (int c = 0; c < matrix[r].length; c++) {
+                if (matrix[r][c].equals("V")) {
                     count++;
                 }
             }
@@ -115,10 +87,10 @@ public class P02_PresentDelivery {
         return count;
     }
 
-    private static boolean isThereMoreGoodKids(String[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j].equals("V")){
+    private static boolean isGoodKidWithoutPresent(String[][] matrix) {
+        for (int r = 0; r < matrix.length; r++) {
+            for (int c = 0; c < matrix[r].length; c++) {
+                if (matrix[r][c].equals("V")) {
                     return true;
                 }
             }
@@ -126,90 +98,66 @@ public class P02_PresentDelivery {
         return false;
     }
 
-    private static void printMatrix(String[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                System.out.print(matrix[i][j] + " ");
+    private static void print(String[][] matrix) {
+        for (int r = 0; r < matrix.length; r++) {
+            for (int c = 0; c < matrix[r].length; c++) {
+                System.out.print(matrix[r][c] + " ");
             }
             System.out.println();
         }
     }
 
-    private static void goRight(String[][] matrix, int santaRow, int santaCol) {
-        santaCol = santaCol +1;
-        if (santaCol >= 0 && santaCol < matrix.length) {
-            if (matrix[santaRow][santaCol].equals("V") || matrix[santaRow][santaCol].equals("X")) {
-                matrix[santaRow][santaCol] = "-";
+    private static void move(String[][] matrix, int rowMutator, int colMutator) {
+        matrix[santaRow][santaCol] = "-";
+
+        int nextRow = santaRow + rowMutator;
+        int nextCol = santaCol + colMutator;
+
+        if (isOutOfBounds(nextRow, nextCol, matrix)) {
+            isOut = true;
+            return;
+        }
+
+        if (matrix[nextRow][nextCol].equals("C")) {
+            santaRow = nextRow;
+            santaCol = nextCol;
+
+            happySanta(matrix, -1, 0);
+
+            happySanta(matrix, 1, 0);
+
+            happySanta(matrix, 0, -1);
+
+            happySanta(matrix, 0, 1);
+
+            if (countOfPresents <= 0) {
+                matrix[nextRow][nextCol] = "S";
+                return;
             }
+        } else if (matrix[nextRow][nextCol].equals("V")) {
+            countOfPresents--;
+            goodKidsWithPresents++;
         }
+
+        matrix[nextRow][nextCol] = "S";
+        santaRow = nextRow;
+        santaCol = nextCol;
+
     }
 
-    private static void goLeft(String[][] matrix, int santaRow, int santaCol) {
-        santaCol = santaCol - 1;
-        if (santaCol >= 0 && santaCol < matrix.length) {
-            if (matrix[santaRow][santaCol].equals("V") || matrix[santaRow][santaCol].equals("X")) {
-                matrix[santaRow][santaCol] = "-";
-            }
-        }
+    private static boolean isOutOfBounds(int nextRow, int nextCol, String[][] matrix) {
+        return nextRow < 0 || nextCol < 0 || nextRow == matrix.length || nextCol == matrix[nextRow].length;
     }
 
-    private static void goDown(String[][] matrix, int santaRow, int santaCol) {
-        santaRow = santaRow + 1;
-        if (santaRow >= 0 && santaRow < matrix.length) {
-            if (matrix[santaRow][santaCol].equals("V") || matrix[santaRow][santaCol].equals("X")) {
-                matrix[santaRow][santaCol] = "-";
-            }
-        }
-    }
+    private static void happySanta(String[][] matrix, int rowChanger, int colChanger) {
+        int row = santaRow + rowChanger;
+        int col = santaCol + colChanger;
 
-    private static void goUp(String[][] matrix, int santaRow, int santaCol) {
-        santaRow = santaRow - 1;
-        if (santaRow >= 0 && santaRow < matrix.length) {
-            if (matrix[santaRow][santaCol].equals("V") || matrix[santaRow][santaCol].equals("X")) {
-                matrix[santaRow][santaCol] = "-";
-            }
+        if (matrix[row][col].equals("V") || matrix[row][col].equals("X")) {
+            matrix[row][col] = "-";
+            countOfPresents--;
+            goodKidsWithPresents++;
         }
-    }
 
-    private static int getSantaCol(String[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j].equals("S")) {
-                    return j;
-                }
-            }
-
-        }
-        return -1;
-    }
-
-    private static boolean isOutside(String[][] matrix, int row, int col) {
-        if (row > matrix.length) {
-            return true;
-        } else if (row < 0) {
-            return true;
-        } else if (col < 0) {
-            return true;
-        } else if (col > matrix.length) {
-            return true;
-        }
-        return false;
-    }
-
-    private static int getSantaRow(String[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j].equals("S")) {
-                    return i;
-                }
-            }
-        }
-        return -1;
-    }
-
-    private static void fillTheMatrix(Scanner scanner, String[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            matrix[i] = scanner.nextLine().split("\\s+");
-        }
     }
 }
