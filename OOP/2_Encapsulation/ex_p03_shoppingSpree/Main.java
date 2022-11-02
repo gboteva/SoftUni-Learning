@@ -1,63 +1,65 @@
-package ex_p03_shoppingSpree;
+package shoppingSpree;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String[] firstInputLine = scanner.nextLine().split(";");
-        String[] secondInputLine = scanner.nextLine().split(";");
+        String[] peopleInfo = scanner.nextLine().split(";");
+        String[] productsInfo = scanner.nextLine().split(";");
+
         Map<String, Person> people = new LinkedHashMap<>();
-        Map<String, Product> products = new HashMap<>();
 
-        for (int i = 0; i < firstInputLine.length; i++) {
-            String[] personInfo = firstInputLine[i].split("=");
-            String name = personInfo[0];
-            double money = Double.parseDouble(personInfo[1]);
-            Person person = new Person(name, money);
-            people.put(name, person);
-        }
-        for (int i = 0; i < secondInputLine.length; i++) {
-            String[] productInfo = secondInputLine[i].split("=");
-            String name = productInfo[0];
-            double cost = Double.parseDouble(productInfo[1]);
-            Product product = new Product(name, cost);
-            products.put(name, product);
-        }
+        for (String string : peopleInfo) {
+            String name = string.split("=")[0];
+            double money = Double.parseDouble(string.split("=")[1]);
 
-        String personAndProduct = scanner.nextLine();
-
-        while (!personAndProduct.equals("END")){
-            String personName = personAndProduct.split("\\s+")[0];
-            String productName = personAndProduct.split("\\s+")[1];
-
-            Person currentPerson = people.get(personName);
-            Product currentProduct = products.get(productName);
             try {
-                currentPerson.buyProduct(currentProduct);
-                System.out.printf("%s bought %s%n", currentPerson.getName(), currentProduct.getName());
-            } catch (Exception e){
-                System.out.printf("%s can't afford %s%n", currentPerson.getName(), currentProduct.getName());
+                Person person = new Person(name, money);
+                people.putIfAbsent(name, person);
+            } catch (IllegalArgumentException ex) {
+                System.out.println(ex.getMessage());
             }
-
-
-            personAndProduct = scanner.nextLine();
         }
 
-        people.entrySet().forEach(e->{
-            System.out.print(e.getKey() + " - ");
-            List<Product> productList = e.getValue().getProducts();
-            List<String> productsName = new ArrayList<>();
-            productList.stream().forEach(product -> {
-               productsName.add(product.getName());
-            });
-            if (!productsName.isEmpty()){
-                System.out.println(String.join(", ", productsName));
-            }else {
-                System.out.println("Nothing bought");
+        Map<String, Product> products = new LinkedHashMap<>();
+        for (String string : productsInfo) {
+            String name = string.split("=")[0];
+            double cost = Double.parseDouble(string.split("=")[1]);
+
+            try {
+                Product product = new Product(name, cost);
+                products.putIfAbsent(name, product);
+            } catch (IllegalArgumentException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+        String command = scanner.nextLine();
+
+        while (!"END".equals(command)) {
+            String[] tokens = command.split("\\s+");
+            String personName = tokens[0];
+            String productName = tokens[1];
+
+            try {
+                if (people.containsKey(personName)){
+                    people.get(personName).buyProduct(products.get(productName));
+                    System.out.printf("%s bought %s%n", personName, productName);
+                }
+
+            } catch (IllegalArgumentException ex) {
+                System.out.println(ex.getMessage());
             }
 
-            });
+            command = scanner.nextLine();
+        }
+
+            people.values().forEach(System.out::println);
+
+
 
     }
 }
