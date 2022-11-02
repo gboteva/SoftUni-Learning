@@ -1,4 +1,4 @@
-package ex_p01_classBox;
+package box_enc;
 
 import java.util.Scanner;
 
@@ -9,9 +9,12 @@ public class Main {
         double width = Double.parseDouble(scanner.nextLine());
         double height = Double.parseDouble(scanner.nextLine());
 
-        Box box = new Box(length, width, height);
-        System.out.printf("Surface Area - %.2f%n", box.calculateSurfaceArea());
-        System.out.printf("Lateral Surface Area - %.2f%n", box.calculateLateralSurfaceArea());
-        System.out.printf("Volume - %.2f%n", box.calculateVolume());
+        try {
+            Box box = new Box(length, width, height);
+            System.out.println(box);
+        } catch (IllegalArgumentException var9) {
+            System.out.println(var9.getMessage());
+        }
+
     }
 }
