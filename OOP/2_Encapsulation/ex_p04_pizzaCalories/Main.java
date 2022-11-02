@@ -1,35 +1,42 @@
-package ex_p04_pizzaCalories;
+package pizzaCalories;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-        String[] pizzaInfo = scanner.nextLine().split("\\s+");
-        String[] doughInfo = scanner.nextLine().split("\\s+");
+        Scanner scanner = new Scanner(System.in);
 
+        String[] pizzaInfo = scanner.nextLine().split("\\s+");
         String pizzaName = pizzaInfo[1];
         int numberOfToppings = Integer.parseInt(pizzaInfo[2]);
-        Pizza pizza = new Pizza(pizzaName, numberOfToppings);
 
+        String[] doughInfo = scanner.nextLine().split("\\s+");
         String doughType = doughInfo[1];
-        String doughBakingTechnique = doughInfo[2];
-        double doughWeigh = Double.parseDouble(doughInfo[3]);
-        Dough dough = new Dough(doughType, doughBakingTechnique, doughWeigh);
-        pizza.setDough(dough);
+        String backingTechnique = doughInfo[2];
+        double doughWeight = Double.parseDouble(doughInfo[3]);
 
-        String toppingInfo = scanner.nextLine();
+        String command = scanner.nextLine();
 
-        while (!toppingInfo.equals("END")){
-            String toppingType = toppingInfo.split("\\s+")[1];
-            double weight = Double.parseDouble(toppingInfo.split("\\s+")[2]);
+        try {
+            Pizza pizza = new Pizza(pizzaName, numberOfToppings);
+            Dough dough = new Dough(doughType, backingTechnique, doughWeight);
+            pizza.setDough(dough);
+            while (!"END".equals(command)) {
+                String[] toppingInfo = command.split("\\s+");
+                String type = toppingInfo[1];
+                double weigh = Double.parseDouble(toppingInfo[2]);
+                Topping topping = new Topping(type, weigh);
+                pizza.addTopping(topping);
 
-            Topping topping = new Topping(toppingType, weight);
-            pizza.addTopping(topping);
+                command = scanner.nextLine();
+            }
 
-            toppingInfo = scanner.nextLine();
+            System.out.println(pizza);
+
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
         }
-
-        System.out.printf("%s - %.2f", pizza.getName(),pizza.getOverallCalories());
     }
+
 }
+
