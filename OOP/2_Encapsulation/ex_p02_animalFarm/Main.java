@@ -1,13 +1,18 @@
-package ex_p02_animalFarm;
+package animalFarm;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String chickenName = scanner.nextLine();
-        int chickenAge = Integer.parseInt(scanner.nextLine());
+        String name = scanner.nextLine();
+        int age = Integer.parseInt(scanner.nextLine());
 
-        System.out.println(new Chicken(chickenName, chickenAge));
+        try {
+            Chicken chicken = new Chicken(name, age);
+            System.out.println(chicken);
+        } catch (IllegalArgumentException ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }
