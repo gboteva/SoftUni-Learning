@@ -1,89 +1,64 @@
-package ex_p05_footballTeamGenerator;
+package footballTeamGenerator;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
+
+        String command = scanner.nextLine();
         Map<String, Team> teams = new LinkedHashMap<>();
 
-        while (!input.equals("END")){
-            String[] tokens = input.split(";");
-            String command = tokens[0];
 
-            switch (command){
-                case "Team":
-                    String teamName = tokens[1];
-                    try {
+        while (!"END".equals(command)) {
+            String[] commandParts = command.split(";");
+            String commandType = commandParts[0];
+            String teamName = commandParts[1];
+            try {
+                switch (commandType) {
+                    case "Team":
                         Team team = new Team(teamName);
-                        teams.put(teamName.trim(),team);
-                    } catch (Exception e){
-                        System.out.println(e.getMessage());
-                    }
+                        teams.put(teamName, team);
+                        break;
 
-                    break;
-
-                case "Add":
-                    String toTeam = tokens[1];
-                    String playerName = tokens[2];
-                    int endurance = Integer.parseInt(tokens[3]);
-                    int sprint = Integer.parseInt(tokens[4]);
-                    int dribble = Integer.parseInt(tokens[5]);
-                    int passing = Integer.parseInt(tokens[6]);
-                    int shooting = Integer.parseInt(tokens[7]);
-
-                    if (teams.containsKey(toTeam.trim())){
-                        try {
-                            Player player = new Player(playerName,endurance,sprint,dribble, passing, shooting);
-                            teams.get(toTeam.trim()).addPlayer(player);
-                        }catch (Exception e){
-                            System.out.println(e.getMessage());
+                    case "Add":
+                        if (!teams.containsKey(teamName)) {
+                            System.out.printf("Team %s does not exist.%n", teamName);
+                        } else {
+                            String playerName = commandParts[2];
+                            int endurance = Integer.parseInt(commandParts[3]);
+                            int sprint = Integer.parseInt(commandParts[4]);
+                            int dribble = Integer.parseInt(commandParts[5]);
+                            int passing = Integer.parseInt(commandParts[6]);
+                            int shooting = Integer.parseInt(commandParts[7]);
+                            Player player = new Player(playerName, endurance, sprint, dribble, passing, shooting);
+                            teams.get(teamName).addPlayer(player);
                         }
 
-                    }else {
-                        System.out.println("Team " + toTeam + " does not exist.");
-                    }
+                        break;
 
-                    break;
+                    case "Remove":
+                        String playerToRemove = commandParts[2];
+                        teams.get(teamName).removePlayer(playerToRemove);
+                        break;
 
-                case "Remove":
-                    String fromTeam = tokens[1];
-                    String playerToRemove = tokens[2];
-                    if (teams.containsKey(fromTeam.trim())){
-                        try {
-                            teams.get(fromTeam.trim()).removePlayer(playerToRemove);
-                        } catch (Exception e){
-                            System.out.println("Player " + playerToRemove + " is not in " + fromTeam + " team.");
-                        }
-                    }
-
-                    break;
-
-
-                case "Rating":
-                    String teamToShow = tokens[1];
-
-                    if (teams.containsKey(teamToShow.trim())){
-
-                        try {
-                            System.out.printf("%s - %.0f%n", teamToShow.trim(), teams.get(teamToShow.trim()).getRating());
-                        } catch (Exception e){
-                            System.out.println(teamToShow.trim() + " - 0");
+                    case "Rating":
+                        if (!teams.containsKey(teamName)) {
+                            System.out.printf("Team %s does not exist.%n", teamName);
+                        } else {
+                            System.out.printf("%s - %.0f%n", teamName, teams.get(teamName).getRating());
                         }
 
+                        break;
 
-                    }else {
-                        System.out.printf("Team %s does not exist.%n", teamToShow.trim());
-                    }
-                    break;
-
+                }
+            } catch (IllegalArgumentException ex) {
+                System.out.println(ex.getMessage());
             }
-
-            input = scanner.nextLine();
+            command = scanner.nextLine();
         }
+
     }
 }

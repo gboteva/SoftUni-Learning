@@ -1,4 +1,4 @@
-package ex_p05_footballTeamGenerator;
+package footballTeamGenerator;
 
 public class Player {
     private String name;
@@ -9,68 +9,57 @@ public class Player {
     private int shooting;
 
     public Player(String name, int endurance, int sprint, int dribble, int passing, int shooting) {
-        this.setName(name);
-        this.setEndurance(endurance);
-        this.setSprint(sprint);
-        this.setDribble(dribble);
-        this.setPassing(passing);
-        this.setShooting(shooting);
+        setName(name);
+        setEndurance(endurance);
+        setSprint(sprint);
+        setDribble(dribble);
+        setPassing(passing);
+        setShooting(shooting);
     }
 
-    private void setName (String name){
-        if (!name.trim().isEmpty()){
-            this.name = name;
-        }else {
+    private void setName(String name) {
+        if (name == null || name.trim().isEmpty()){
             throw new IllegalArgumentException("A name should not be empty.");
         }
+        this.name = name;
     }
 
-    public String getName (){
-        return this.name;
+    private void setEndurance(int endurance) {
+        checkStats(endurance,"Endurance");
+        this.endurance = endurance;
     }
 
-    private void setEndurance (int endurance){
-        if (endurance>=0 && endurance<=100){
-            this.endurance = endurance;
-        }else {
-            throw new IllegalArgumentException("Endurance should be between 0 and 100.");
-        }
-
+    private void setSprint(int sprint) {
+        checkStats(sprint,"Sprint");
+        this.sprint = sprint;
     }
 
-    private void setSprint (int sprint){
-        if (sprint>=0 && sprint<=100){
-            this.sprint = sprint;
-        }else {
-            throw new IllegalArgumentException("Sprint should be between 0 and 100.");
-        }
+    private void setDribble(int dribble) {
+        checkStats(dribble,"Dribble");
+        this.dribble = dribble;
     }
 
-    private void setDribble (int dribble){
-        if (dribble>=0 && dribble<=100){
-            this.dribble = dribble;
-        }else {
-            throw new IllegalArgumentException("Dribble should be between 0 and 100.");
-        }
+    private void setPassing(int passing) {
+        checkStats(passing,"Passing");
+        this.passing = passing;
     }
 
-    private void  setPassing (int passing){
-        if (passing>=0 && passing<=100){
-            this.passing = passing;
-        }else {
-            throw new IllegalArgumentException("Passing should be between 0 and 100.");
-        }
+    private void setShooting(int shooting) {
+        checkStats(shooting,"Shooting");
+        this.shooting = shooting;
     }
 
-    private void  setShooting (int shooting){
-        if (shooting>=0 && shooting<=100){
-            this.shooting = shooting;
-        }else {
-            throw new IllegalArgumentException("Shooting should be between 0 and 100.");
-        }
+    public String getName() {
+        return name;
     }
 
     public double overallSkillLevel(){
-        return (this.endurance + this.dribble + this.sprint + this.passing + this.shooting)/5.0;
+        return (endurance + sprint + dribble + passing + shooting) / 5.0;
+    }
+
+    private void checkStats(int value, String statName){
+        if (value < 0 || value > 100){
+            throw new IllegalArgumentException(statName + " should be between 0 and 100.");
+        }
     }
 }
