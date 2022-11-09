@@ -1,66 +1,66 @@
-package ex_p02_VehicleExtension;
+package vehicles;
 
 import java.text.DecimalFormat;
 
-public class Vehicle {
+public abstract class Vehicle {
+
     private double fuelQuantity;
     private double fuelConsumption;
     private double tankCapacity;
 
-    public Vehicle(double fuelQuantity, double fuelConsumption, double tankCapacity) {
-        this.setFuelQuantity(fuelQuantity);
+    protected Vehicle(double fuelQuantity, double fuelConsumption, double tankCapacity) {
+        this.fuelQuantity = fuelQuantity;
         this.fuelConsumption = fuelConsumption;
         this.tankCapacity = tankCapacity;
     }
 
-    public double getFuelQuantity() {
+    protected double getFuelQuantity() {
         return fuelQuantity;
     }
 
-    public void setFuelQuantity(double fuelQuantity) {
-        if (fuelQuantity <= 0) {
-            throw new IllegalArgumentException("Fuel must be a positive number");
-        }
-
-        this.fuelQuantity = fuelQuantity;
-
-    }
-
-    public double getFuelConsumption() {
+    protected double getFuelConsumption() {
         return fuelConsumption;
     }
 
-    public void setFuelConsumption(double fuelConsumption) {
-        this.fuelConsumption = fuelConsumption;
-    }
-
-    public double getTankCapacity() {
+    protected double getTankCapacity() {
         return tankCapacity;
     }
 
-    public void setTankCapacity(double tankCapacity) {
-        this.tankCapacity = tankCapacity;
+    protected void setFuelQuantity(double fuelQuantity) {
+        this.fuelQuantity = fuelQuantity;
     }
 
-    String drive(double distance) {
-        double neededFuel = distance * this.fuelConsumption;
+    protected void setFuelConsumption(double fuelConsumption){
+        this.fuelConsumption = fuelConsumption;
+    }
 
-        if (this.fuelQuantity < neededFuel) {
-            return String.format("%s needs refueling", getClass().getSimpleName());
+    public void drive(double km) {
+
+        double neededFuel = km * getFuelConsumption();
+
+        if (haveEnoughFuel(neededFuel)) {
+
+            setFuelQuantity(getFuelQuantity() - neededFuel);
+
+            printDrivingOutput(km);
+
         } else {
-            this.fuelQuantity -= neededFuel;
-            DecimalFormat df = new DecimalFormat("###.##");
-            return String.format("%s travelled %s km", getClass().getSimpleName(), df.format(distance));
+            System.out.printf("%s needs refueling%n", getClass().getSimpleName());
         }
+
     }
 
-    void refuel(double litters) {
-        double quantityToRefuel = this.fuelQuantity + litters;
-        if (quantityToRefuel > this.tankCapacity) {
-            throw new IllegalArgumentException("Cannot fit fuel in tank");
-        } else  if (litters <= 0) {
-            throw new IllegalArgumentException("Fuel must be a positive number");
+    public abstract void refuel(double litters);
+
+    private boolean haveEnoughFuel(double neededFuel) {
+        if (neededFuel > fuelQuantity) {
+            return false;
         }
-        this.fuelQuantity += litters;
+        return true;
+    }
+
+    private void printDrivingOutput(double km) {
+        DecimalFormat df = new DecimalFormat("#.##");
+        System.out.printf("%s travelled %s km%n", getClass().getSimpleName(), df.format(km));
     }
 }

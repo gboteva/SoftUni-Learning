@@ -1,14 +1,45 @@
-package ex_p02_VehicleExtension;
+package vehicles;
 
-public class Bus extends Vehicle{
+public class Bus extends Vehicle {
 
-    private static final double ADDITIONAL_AC_CONSUMPTION = 1.4;
+    private final static double fuelConsumptionIncreasingStep = 1.4;
+    private static double initialFuelConsumption = 0;
+
+    private boolean isEmpty;
 
     public Bus(double fuelQuantity, double fuelConsumption, double tankCapacity) {
-        super(fuelQuantity, fuelConsumption + ADDITIONAL_AC_CONSUMPTION, tankCapacity);
+        super(fuelQuantity, fuelConsumption, tankCapacity);
+        initialFuelConsumption = fuelConsumption;
+        isEmpty = false;
     }
 
+    public void setIsEmpty() {
+        isEmpty = true;
+        setFuelConsumption(initialFuelConsumption);
+    }
 
+    @Override
+    public void refuel(double litters) {
 
+        if (litters <= 0) {
+            System.out.println("Fuel must be a positive number");
+            return;
+        }
 
+        if (super.getFuelQuantity() + litters > getTankCapacity()) {
+            System.out.println("Cannot fit fuel in tank");
+        } else {
+            setFuelQuantity(getFuelQuantity() + litters);
+        }
+    }
+
+    @Override
+    public void drive(double km) {
+        if (!isEmpty) {
+            setFuelConsumption(getFuelConsumption() + fuelConsumptionIncreasingStep);
+        }
+
+        super.drive(km);
+
+    }
 }
