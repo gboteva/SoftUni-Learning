@@ -1,7 +1,5 @@
-package ex_p01_Vehicles;
+package vehicles;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -9,36 +7,48 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String[] carInfo = scanner.nextLine().split("\\s+");
         String[] truckInfo = scanner.nextLine().split("\\s+");
-        Car car = new Car(Double.parseDouble(carInfo[1]), Double.parseDouble(carInfo[2]));
-        Truck truck = new Truck(Double.parseDouble(truckInfo[1]), Double.parseDouble(truckInfo[2]));
 
-        Map<String, Vehicle> vehicleMap = new LinkedHashMap<>();
-        vehicleMap.put("Car", car);
-        vehicleMap.put("Truck", truck);
+        double carFuelQuantity = Double.parseDouble(carInfo[1]);
+        double carFuelConsumption = Double.parseDouble(carInfo[2]);
 
-        int commandCount = Integer.parseInt(scanner.nextLine());
+        Vehicle car = new Car(carFuelQuantity, carFuelConsumption);
 
-        for (int i = 0; i < commandCount; i++) {
-            String[] line = scanner.nextLine().split("\\s+");
-            String command = line[0];
-            String vehicleType = line[1];
+        double truckFuelQuantity = Double.parseDouble(truckInfo[1]);
+        double truckFuelConsumption = Double.parseDouble(truckInfo[2]);
 
-            switch (command){
+        Vehicle truck = new Truck(truckFuelQuantity, truckFuelConsumption);
+
+        int numberOfCommands = Integer.parseInt(scanner.nextLine());
+
+        while (numberOfCommands-- > 0){
+            String[] commandPart = scanner.nextLine().split("\\s+");
+            String typeOfCommand = commandPart[0];
+            String vehicle = commandPart[1];
+            double parameter = Double.parseDouble(commandPart[2]);
+
+            switch (typeOfCommand){
+
                 case "Drive":
-                    double distance = Double.parseDouble(line[2]);
-                    System.out.println(vehicleMap.get(vehicleType).drive(distance));
+                    if (vehicle.equals("Car")){
+                        car.drive(parameter);
+                    }else if (vehicle.equals("Truck")){
+                        truck.drive(parameter);
+                    }
+
                     break;
 
                 case "Refuel":
-                    double litter = Double.parseDouble(line[2]);
-                    vehicleMap.get(vehicleType).refuel(litter);
+                    if (vehicle.equals("Car")){
+                        car.refuel(parameter);
+                    }else if (vehicle.equals("Truck")){
+                        truck.refuel(parameter);
+                    }
                     break;
+
             }
         }
 
-       vehicleMap.entrySet().stream().forEach(v->{
-           System.out.printf("%s: %.2f%n",
-                   v.getValue().getClass().getSimpleName(), v.getValue().getFuelQuantity());
-       });
+        System.out.printf("Car: %.2f%n", car.getFuelQuantity());
+        System.out.printf("Truck: %.2f", truck.getFuelQuantity());
     }
 }

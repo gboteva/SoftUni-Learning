@@ -1,44 +1,59 @@
-package ex_p01_Vehicles;
+package vehicles;
 
 import java.text.DecimalFormat;
 
-public class Vehicle {
+public abstract class Vehicle {
+
     private double fuelQuantity;
     private double fuelConsumption;
 
-    public Vehicle(double fuelQuantity, double fuelConsumption) {
+    protected Vehicle(double fuelQuantity, double fuelConsumption) {
         this.fuelQuantity = fuelQuantity;
         this.fuelConsumption = fuelConsumption;
     }
 
-    public double getFuelQuantity() {
+    protected double getFuelQuantity() {
         return fuelQuantity;
     }
 
-    public void setFuelQuantity(double fuelQuantity) {
-        this.fuelQuantity = fuelQuantity;
-    }
-
-    public double getFuelConsumption() {
+    protected double getFuelConsumption() {
         return fuelConsumption;
     }
 
-    public void setFuelConsumption(double fuelConsumption) {
+    protected void setFuelQuantity(double fuelQuantity) {
+        this.fuelQuantity = fuelQuantity;
+    }
+
+    protected void setFuelConsumption(double fuelConsumption) {
         this.fuelConsumption = fuelConsumption;
     }
 
-    String drive (double distance){
-        double neededFuel = distance * this.fuelConsumption;
-        if (this.fuelQuantity<neededFuel){
-            return String.format("%s needs refueling", getClass().getSimpleName());
-        }else {
-            this.fuelQuantity-=neededFuel;
-            DecimalFormat df = new DecimalFormat("###.##");
-            return String.format("%s travelled %s km", getClass().getSimpleName(), df.format(distance));
-        }
+    public void drive(double km){
+        double neededFuel = km * getFuelConsumption();
+
+       if (haveEnoughFuel(neededFuel)){
+
+        setFuelQuantity(getFuelQuantity() - neededFuel);
+
+        printDrivingOutput(km);
+
+       }else {
+           System.out.printf("%s needs refueling%n", getClass().getSimpleName());
+       }
+
     }
 
-    void refuel(double litters){
-        this.fuelQuantity+=litters;
+    public abstract void refuel(double litters);
+
+    private boolean haveEnoughFuel(double neededFuel){
+        if (neededFuel > fuelQuantity){
+           return false;
+        }
+        return true;
     }
+
+   private void printDrivingOutput(double km){
+       DecimalFormat df = new DecimalFormat("#.##");
+       System.out.printf("%s travelled %s km%n", getClass().getSimpleName(), df.format(km));
+   }
 }
