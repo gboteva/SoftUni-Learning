@@ -10,16 +10,7 @@ public class Truck extends Vehicle {
 
     @Override
     public void refuel(double litters) {
-        if (litters*0.95 <= 0){
-            System.out.println("Fuel must be a positive number");
-            return;
-        }
-
-        if ((super.getFuelQuantity() + (litters * 0.95)) > getTankCapacity()) {
-            System.out.println("Cannot fit fuel in tank");
-        } else {
-            setFuelQuantity(getFuelQuantity() + (litters * 0.95));
-        }
+       super.refuel(litters * 0.95);
 
     }
 }
