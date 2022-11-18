@@ -2,6 +2,7 @@ package barracksWars.core.factories;
 
 import barracksWars.interfaces.Unit;
 import barracksWars.interfaces.UnitFactory;
+import barracksWars.models.units.*;
 import jdk.jshell.spi.ExecutionControl;
 
 import java.lang.reflect.Constructor;
@@ -13,22 +14,16 @@ public class UnitFactoryImpl implements UnitFactory {
 			"barracksWars.models.units.";
 
 	@Override
-	public Unit createUnit(String unitType)  {
-		// TODO: implement for problem 3 - done
-
+	public Unit createUnit(String unitType) {
 		try {
-			//1. взимаме класа, който ни трябва
-			Class unitReflection = Class.forName(UNITS_PACKAGE_NAME + unitType);
-
-			//2. взимаме му конструктора и го правим достъпен:
-			Constructor <Unit> constructor = unitReflection.getDeclaredConstructor();
-			constructor.setAccessible(true);
-
-			//създаваме unit
+			Class unitClass = Class.forName(UNITS_PACKAGE_NAME + unitType);
+			Constructor<Unit> constructor = unitClass.getDeclaredConstructor();
 			return constructor.newInstance();
-		} catch (Exception e){
 
+		} catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+			System.out.println("No such unit type");
 		}
+
 		return null;
 	}
 }
