@@ -1,9 +1,10 @@
 package goldDigger.models.discoverer;
 
 public class Anthropologist extends BaseDiscoverer{
-    private final static double ENERGY = 40.00;
+
+    private final static double INITIAL_ENERGY = 40;
 
     public Anthropologist(String name) {
-        super(name, ENERGY);
+        super(name, INITIAL_ENERGY);
     }
 }

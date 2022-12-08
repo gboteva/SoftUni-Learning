@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-public class DiscovererRepository implements Repository<Discoverer>{
+public class DiscovererRepository implements Repository<Discoverer> {
 
     private Collection<Discoverer> discoverers;
 
@@ -16,7 +16,7 @@ public class DiscovererRepository implements Repository<Discoverer>{
 
     @Override
     public Collection<Discoverer> getCollection() {
-        return Collections.unmodifiableCollection(this.discoverers);
+        return Collections.unmodifiableCollection(discoverers);
     }
 
     @Override
@@ -29,13 +29,10 @@ public class DiscovererRepository implements Repository<Discoverer>{
         return this.discoverers.remove(entity);
     }
 
-
     @Override
     public Discoverer byName(String name) {
-        return discoverers.stream()
-                .filter(d->d.getName().equals(name))
+        return this.discoverers.stream().filter(d->d.getName().equals(name))
                 .findFirst()
                 .orElse(null);
-
     }
 }

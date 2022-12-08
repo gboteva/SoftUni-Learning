@@ -6,33 +6,29 @@ import goldDigger.models.museum.Museum;
 import static goldDigger.common.ExceptionMessages.DISCOVERER_ENERGY_LESS_THAN_ZERO;
 import static goldDigger.common.ExceptionMessages.DISCOVERER_NAME_NULL_OR_EMPTY;
 
-public abstract class BaseDiscoverer implements Discoverer{
-
-    private final static double ENERGY_DECREASING_STEP = 15.00;
+public abstract class BaseDiscoverer implements Discoverer {
 
     private String name;
     private double energy;
     private Museum museum;
 
     protected BaseDiscoverer(String name, double energy) {
-        this.setName(name);
-        this.setEnergy(energy);
+        setName(name);
+        setEnergy(energy);
         this.museum = new BaseMuseum();
     }
 
-    private void setName(String name){
-        if (name == null || name.trim().isEmpty()){
+    private void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
             throw new NullPointerException(DISCOVERER_NAME_NULL_OR_EMPTY);
         }
-
         this.name = name;
     }
 
-    private void setEnergy(double energy){
-        if (energy < 0){
+    protected void setEnergy(double energy) {
+        if (energy < 0) {
             throw new IllegalArgumentException(DISCOVERER_ENERGY_LESS_THAN_ZERO);
         }
-
         this.energy = energy;
     }
 
@@ -48,7 +44,7 @@ public abstract class BaseDiscoverer implements Discoverer{
 
     @Override
     public boolean canDig() {
-        return getEnergy() > 0;
+        return this.energy > 0;
     }
 
     @Override
@@ -58,11 +54,6 @@ public abstract class BaseDiscoverer implements Discoverer{
 
     @Override
     public void dig() {
-        if (canDig()){
-            this.energy -= ENERGY_DECREASING_STEP;
-            if (this.energy < 0){
-                this.energy = 0;
-            }
-        }
+        setEnergy(Math.max(0, this.energy - 15));
     }
 }

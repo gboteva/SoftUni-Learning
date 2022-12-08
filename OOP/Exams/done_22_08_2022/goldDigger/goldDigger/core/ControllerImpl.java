@@ -19,41 +19,45 @@ import java.util.stream.Collectors;
 import static goldDigger.common.ConstantMessages.*;
 import static goldDigger.common.ExceptionMessages.*;
 
-public class ControllerImpl implements Controller {
+public class ControllerImpl implements Controller{
 
-   private Repository<Discoverer> discovererRepository;
+    private Repository<Discoverer> discovererRepository;
     private Repository<Spot> spotRepository;
-    private int countInspectedSpot;
+    private int inspectedSpotCount;
 
     public ControllerImpl() {
         this.discovererRepository = new DiscovererRepository();
         this.spotRepository = new SpotRepository();
-        this.countInspectedSpot = 0;
+        this.inspectedSpotCount = 0;
     }
 
     @Override
     public String addDiscoverer(String kind, String discovererName) {
+       Discoverer discoverer;
+       switch (kind){
+           case "Anthropologist":
+               discoverer = new Anthropologist(discovererName);
+               break;
+           case "Archaeologist":
+               discoverer = new Archaeologist(discovererName);
+               break;
+           case "Geologist":
+               discoverer = new Geologist(discovererName);
+               break;
+           default: throw new IllegalArgumentException(DISCOVERER_INVALID_KIND);
+       }
 
-        Discoverer discoverer;
-        if (kind.equals("Archaeologist")) {
-            discoverer = new Archaeologist(discovererName);
-        } else if (kind.equals("Anthropologist")) {
-            discoverer = new Anthropologist(discovererName);
-        } else if (kind.equals("Geologist")) {
-            discoverer = new Geologist(discovererName);
-        } else {
-            throw new IllegalArgumentException(DISCOVERER_INVALID_KIND);
-        }
-        this.discovererRepository.add(discoverer);
-        return String.format(DISCOVERER_ADDED, kind, discovererName);
+       this.discovererRepository.add(discoverer);
+       return String.format(DISCOVERER_ADDED, kind, discovererName);
     }
 
     @Override
     public String addSpot(String spotName, String... exhibits) {
 
-        List<String> exhibitsList = Arrays.asList(exhibits);
         Spot spot = new SpotImpl(spotName);
-        exhibitsList.forEach(e -> spot.getExhibits().add(e));
+
+        spot.getExhibits().addAll(Arrays.asList(exhibits));
+
         spotRepository.add(spot);
 
         return String.format(SPOT_ADDED, spotName);
@@ -61,55 +65,57 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String excludeDiscoverer(String discovererName) {
-        Discoverer discoverer = discovererRepository.byName(discovererName);
+        Discoverer discovererToExclude = discovererRepository.byName(discovererName);
 
-        if (discoverer == null) {
+        if (discovererToExclude == null){
             throw new IllegalArgumentException(String.format(DISCOVERER_DOES_NOT_EXIST, discovererName));
         }
 
-        discovererRepository.remove(discoverer);
-        return String.format(DISCOVERER_EXCLUDE, discovererName);
+        discovererRepository.remove(discovererToExclude);
 
+        return String.format(DISCOVERER_EXCLUDE, discovererName);
     }
 
     @Override
     public String inspectSpot(String spotName) {
-        List<Discoverer> discoverers = discovererRepository.getCollection().stream()
-                .filter(d -> d.getEnergy() > 45)
+       Spot spotToInspect = spotRepository.byName(spotName);
+
+        List<Discoverer> picked = this.discovererRepository.getCollection().stream()
+                .filter(d->d.getEnergy() > 45)
                 .collect(Collectors.toList());
 
-        if (discoverers.size() == 0) {
+        if (picked.isEmpty()){
             throw new IllegalArgumentException(SPOT_DISCOVERERS_DOES_NOT_EXISTS);
         }
 
-        Spot spot = spotRepository.byName(spotName);
-
         Operation operation = new OperationImpl();
-        operation.startOperation(spot, discoverers);
-        this.countInspectedSpot++ ;
+        operation.startOperation(spotToInspect, picked);
 
-        //not working corect
-        return String.format(INSPECT_SPOT, spotName, discovererRepository.getCollection().size() - discoverers.size());
+        inspectedSpotCount++;
+
+        int excludedOfTheMission = picked.stream().filter(d->d.getEnergy() == 0)
+                .collect(Collectors.toList()).size();
+
+        return String.format(INSPECT_SPOT, spotName, excludedOfTheMission);
+
     }
 
     @Override
     public String getStatistics() {
-      StringBuilder builder = new StringBuilder();
-      builder.append(this.countInspectedSpot).append(" spots were inspected.").append(System.lineSeparator());
-      builder.append("Information for the discoverers:").append(System.lineSeparator());
-
-        for (Discoverer discoverer : discovererRepository.getCollection()) {
-            String name = discoverer.getName();
-            double energy = discoverer.getEnergy();
-            String museum;
+        StringBuilder builder = new StringBuilder();
+        builder.append(String.format(FINAL_SPOT_INSPECT, inspectedSpotCount)).append(System.lineSeparator());
+        builder.append(FINAL_DISCOVERER_INFO).append(System.lineSeparator());
+        for (Discoverer discoverer : this.discovererRepository.getCollection()) {
+            builder.append(String.format(FINAL_DISCOVERER_NAME, discoverer.getName())).append(System.lineSeparator());
+            builder.append(String.format(FINAL_DISCOVERER_ENERGY, discoverer.getEnergy())).append(System.lineSeparator());
+            String exhibitsToPrint;
             if (discoverer.getMuseum().getExhibits().isEmpty()){
-                museum = "None";
+                exhibitsToPrint = "None";
             }else {
-                museum = String.join(FINAL_DISCOVERER_MUSEUM_EXHIBITS_DELIMITER, discoverer.getMuseum().getExhibits());
+                exhibitsToPrint = String.join(FINAL_DISCOVERER_MUSEUM_EXHIBITS_DELIMITER,discoverer.getMuseum().getExhibits());
             }
-            builder.append(String.format(FINAL_DISCOVERER_NAME, name)).append(System.lineSeparator());
-            builder.append(String.format(FINAL_DISCOVERER_ENERGY, energy)).append(System.lineSeparator());
-            builder.append(String.format(FINAL_DISCOVERER_MUSEUM_EXHIBITS, museum)).append(System.lineSeparator());
+
+            builder.append(String.format(FINAL_DISCOVERER_MUSEUM_EXHIBITS, exhibitsToPrint)).append(System.lineSeparator());
         }
 
         return builder.toString().trim();

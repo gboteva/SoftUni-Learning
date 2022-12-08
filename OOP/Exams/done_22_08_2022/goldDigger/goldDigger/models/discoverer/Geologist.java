@@ -2,9 +2,9 @@ package goldDigger.models.discoverer;
 
 public class Geologist extends BaseDiscoverer{
 
-    private final static double ENERGY = 100.00;
+    private final static double INITIAL_ENERGY = 100;
 
     public Geologist(String name) {
-        super(name, ENERGY);
+        super(name, INITIAL_ENERGY);
     }
 }

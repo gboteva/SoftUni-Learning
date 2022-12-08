@@ -16,7 +16,7 @@ public class SpotRepository implements Repository<Spot> {
 
     @Override
     public Collection<Spot> getCollection() {
-        return Collections.unmodifiableCollection(this.spots);
+        return Collections.unmodifiableCollection(spots);
     }
 
     @Override
@@ -29,11 +29,9 @@ public class SpotRepository implements Repository<Spot> {
         return this.spots.remove(entity);
     }
 
-
     @Override
     public Spot byName(String name) {
-        return this.spots.stream()
-                .filter(s->s.getName().equals(name))
+        return this.spots.stream().filter(s->s.getName().equals(name))
                 .findFirst()
                 .orElse(null);
     }
