@@ -10,7 +10,7 @@ Fundamentals Module - The course examines the basic concepts in programming like
 * String processing;
 * Regular expressions.
 
-Advanced Module - working with Java:
+Advanced Module:
 * Stacks and Queues;
 * Multidimensional Arrays;
 * Sets and Maps Advanced;
@@ -31,3 +31,9 @@ OOP Modul:
 * Unit Testing;
 * Test Driven Development;
 * Design patterns;
+ 
+ Data Structures - Fundamentals:
+ * Data Structures and Complexity
+ * Linear Data Structures
+ * Trees Representation and Traversal (BFS, DFS)
+ * Heaps, BST
