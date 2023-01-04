@@ -1,0 +1,48 @@
+html{
+    font-family: Helvetica, sans-serif; 
+}
+
+body{
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;   
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;
+}
+
+
+blockquote{
+   font-style: italic;
+   border: 1px solid white;
+   border-left-color: rgb(221,221,221);
+}
+
+p.Koko{
+    text-align: right;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th{
+    background-color: lightgray;
+    width: 144px;
+    height: 32px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+td{
+    width: 144px;
+    height: 32px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}

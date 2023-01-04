@@ -1,0 +1,39 @@
+@import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);
+
+body{
+    background-color: rgb(241, 239, 239);
+}
+
+.button{
+    cursor: pointer;
+    outline: none;
+    border-radius: 30px;
+    padding: 5px 10px;
+    background-color: rgb(251, 251, 251);
+    color: rgb(51, 51, 51);
+    font-weight:bold;
+    border-color: rgb(51, 51, 51);
+}
+
+h2{
+    padding-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:normal;
+}
+
+.fill{
+    color: rgb(251, 251, 251);
+    background-color: rgb(51, 51, 51);
+}
+
+#first.hover:hover{
+    color: rgb(0, 102, 0);
+    background-color: rgb(251, 251, 251);
+}
+
+.hover:hover{
+    background-color: rgb(0, 102, 0);
+    border: 2px solid rgb(0, 102, 0);
+}
+
+
