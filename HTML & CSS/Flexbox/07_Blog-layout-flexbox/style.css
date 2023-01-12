@@ -1,0 +1,138 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(238, 238, 238);
+    font-family: Georgia, serif;
+    padding: 10px 50px;
+    margin: 0px;
+    margin-bottom: 30px;
+}
+
+.page{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header.top{
+    z-index: 1000;
+    margin-top: 30px;
+    padding-bottom: 8px;
+    border-bottom: solid 2px black;
+    display: flex;
+    justify-content: flex-end;
+}
+
+header .title{
+    font-size: 26px;
+    font-weight: bold;
+    font-family: Georgia, serif; 
+    margin: 0px;
+    margin-right: 950px;
+}
+
+header .nav .items{
+    list-style-type: none;
+    display: flex;
+    gap: 26px;
+   
+}
+
+header .nav .items a{
+   text-decoration: none;
+    color: rgb(0, 153, 0);
+}
+
+header h1,h2{
+    font-family: Georgia, serif;
+    font-size: 1em/1.2;
+    font-weight: 540;
+    margin-bottom: 0px;
+}
+
+article{
+    margin-top: 30px;
+}
+
+main{
+    /* display: inline-block; */
+    width: 70%;
+    /* position: relative; */
+}
+
+img.firstImg, img.secondImg{
+    border: 3px solid black;
+    width: 200px;
+    padding: 4px;
+    margin: 5px;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25) ; 
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25) ;
+    background-color: rgb(255, 255, 255);
+}
+
+img.firstImg{
+    float:right;
+}
+
+img.secondImg{
+    float: left;
+    margin-right: 15px;
+}
+
+p{
+    line-height: 1.5;
+}
+
+article .halfP{
+    display: inline-block;
+    width: 40%;
+}
+
+article blockquote{
+    display: inline-block;
+    font-family: Georgia, serif;
+    width: 49%;
+    height: 200px;
+    font-style: italic;
+    border-left: 3px solid rgb(224, 216, 216) ;
+    padding-left: 30px;
+    vertical-align: top;
+    color: rgb(116, 104, 104);
+    line-height: 1.5;
+}
+
+p.authorName{
+    text-align: right;
+}
+
+
+aside{
+    display: inline-block;
+    position: absolute;
+    top: 12%;
+    left: 75%;
+}
+
+aside h3{
+    font-family: Georgia, serif;
+    font-size: 1em/1.2;
+    font-weight: normal;
+}
+
+aside ul{
+    list-style-type: square;
+}
+
+aside ul li{
+    padding: 2px;
+}
+
+
+aside ul li a{
+    padding: 5px;
+    text-decoration: none;
+    color: rgb(0, 153, 0);
+}
