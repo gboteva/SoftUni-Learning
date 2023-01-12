@@ -1,0 +1,73 @@
+html{
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.container{
+    display: flex;
+    max-width: 15vw;
+    height: 35rem;
+    gap: 5px;
+    flex-direction:column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container span{
+   border: solid 1px black; 
+   text-align: center;
+   padding: 7px 0px; 
+   margin: 0px;
+}
+
+.container .zero{
+    order:0;
+}
+
+.container .one{
+    order:1;
+}
+
+.container .two{
+    order:2;
+}
+
+.container .three{
+    order:3;
+}
+
+.container .four{
+    order:4;
+}
+
+.container .five{
+    order:5;
+}
+
+.container .six{
+    order:6;
+}
+
+.container .seven{
+    order:7;
+}
+
+.container .eight{
+    order:8;
+}
+
+.container .nine{
+    order:9;
+}
+
+.container .ten{
+    order:10;
+}
+
+.container .eleven{
+    order:11;
+}
+
+.container .twelve{
+    order:12;
+}
