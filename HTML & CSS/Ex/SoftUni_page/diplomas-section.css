@@ -1,0 +1,69 @@
+@import url(./variables.css);
+
+#diplomas{
+    padding: 50px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+#diplomas .diplomas-info{
+    width: 60%;
+    margin-right: 20px;
+}
+
+#diplomas .dimplomas-info-title{
+    padding-bottom: 10px;
+    color: var(--clr-gray-text);
+}
+
+#diplomas .dimplomas-main-info{
+    margin-bottom: 15px;
+}
+
+#diplomas .diplomas-sub-info{
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 5px;
+    color: var(--clr-gray-text);
+}
+
+#diplomas .dimplomas-img-container{
+    position: relative;
+}
+
+#diplomas .dimplomas-img-container::before{
+    content: ' ';
+    background-color: var(--clr-circle);
+    width: 520px;
+    height: 483px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -2;
+    top: -249px;
+    right: -100px;
+}
+
+#diplomas .dimplomas-img-container::after{
+    content: ' ';
+    background: url(./images/award.svg);
+    position: absolute;
+    z-index: -1;
+    top: -115px;
+    right: -50px;
+    width: 147px;
+    height: 110%;
+}
+
+
+@media (max-width: 900px){
+    #diplomas .dimplomas-img-container{
+        display: none;
+    }
+
+    #diplomas .diplomas-info{
+        width: 100%;
+    }
+
+}

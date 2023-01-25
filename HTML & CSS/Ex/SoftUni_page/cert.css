@@ -1,0 +1,39 @@
+#certificates{
+    display: flex;
+    padding: 100px 60px;
+    background-color: #14162b;
+}
+
+#certificates .sert-info{
+    width: 65%;
+    margin-right: 20px;
+    color: var(--clr-white);
+    margin-right: 150px;
+}
+
+#certificates .sert-info-img-container{
+    width: 350px;
+    position: relative;
+}
+
+#certificates .sert-img{
+    position: absolute;
+    top: -50px;
+}
+
+
+@media (max-width: 1232px) {
+    #certificates{
+        display: block;
+    }
+
+    #certificates .sert-img{
+       display: none;
+    }
+
+    #certificates .sert-info{
+        width: 100%;
+    }
+}
+
+
