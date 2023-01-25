@@ -1,0 +1,26 @@
+button{
+    padding: 5px 20px;
+    color: rgb(79, 78, 78);
+    border-radius: 3px;
+    border: 2px solid rgb(79, 78, 78);
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+}
+
+section.need-site button{
+    display: block;
+}
+
+button.subscribe{
+   grid-area: btn;
+   height: 100%;
+}
+
+/* tablet */
+@media (max-width: 768px){
+    section.need-site button{
+        margin-top: 20px;
+        padding: 5px 10px;
+    }
+}

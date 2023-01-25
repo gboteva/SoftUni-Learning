@@ -1,0 +1,82 @@
+.card{
+   width: 280px; 
+   height: 300px;
+}
+
+section.team .card .img-container, section.test .card .img-container{
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+}
+
+
+section.team .card .img-container img, section.test .card .img-container img{
+    width: 60%;
+    border-radius: 100%;
+    border: 3px solid transparent;
+    box-shadow: inset 0px 0px 14px 20px rgba(142, 135, 135, 0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+    margin-bottom: 50px;
+}
+
+section.team .card .name, section.team .card .name{
+    font-weight: bold;
+    text-align: center;
+}
+
+section.team .card .position, section.test .card .position{
+    text-align: center;
+}
+
+section.team .card .desc, section.test .card .desc{
+    text-align: center;
+    font-style: italic;
+}
+
+section.team .card .desc{
+   margin-top: 30px;
+}
+
+section.test .card .desc{
+    margin-bottom: 30px;
+    color: rgb(79, 78, 78);
+}
+
+section.test .card .position{
+    color: rgb(79, 78, 78);
+}
+
+/* laptop */
+@media (min-width: 992px){
+    .card{
+        width: 200px; 
+        height: 250px;
+        font-size: 14px;
+     } 
+}
+
+@media (max-width: 768px){
+    .card{
+        width: 200px; 
+        height: 250px;
+        font-size: 14px;
+     } 
+}
+
+@media (max-width: 600px){
+    
+section.team .card, section.test .card{
+        width: 30%;
+        height: 150px;
+        font-size: 0.7rem;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    section.team .card .img-container img, section.test .card .img-container img{
+        margin-bottom: 20px;
+    }
+
+    section.team .card .desc, section.test .card .desc{
+        margin: 10px;
+    }
+}
