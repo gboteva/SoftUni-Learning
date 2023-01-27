@@ -1,0 +1,80 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
+
+#faq{
+    color: var(--clr-white);
+    background-color: var(--clr-section-bg);
+    padding: 50px 20px;
+}
+
+#faq>h2{
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#faq .faq-ctn{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 30px;
+}
+
+#faq .quest{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+}
+
+
+#faq .quest .quest-items{
+    border-radius: 4px;
+    width: 100%;
+    font-size: 24px;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    background-color: var(--clr-bg-quest);
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+
+#faq .quest .quest-items i{
+    font-size: 30px;
+    color: var(--clr-divider);
+}
+
+@media screen and (max-width: 920px) {
+    #faq .quest .quest-items{
+        font-size: 18px;
+    }
+
+    #faq .quest .quest-items i{
+        font-size: 26px;
+
+    }
+}
+
+@media screen and (max-width: 805px) {
+    #faq{
+        height: 750px;
+    }
+
+   #faq .input{
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        position: relative;
+     }
+ 
+     #faq .hero-input{
+         width: 80%;
+         position: absolute;
+     }
+ 
+     #faq .big-btn{
+         position: absolute;
+         top: 92px;
+     }
+}

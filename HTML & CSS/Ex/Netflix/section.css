@@ -1,0 +1,54 @@
+#enjoy-tv{
+    color: var(--clr-white);
+    background-color: var(--clr-section-bg);
+    padding: 60px 0px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#enjoy-tv .info{
+   width: 40%;
+   z-index: 1;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+#enjoy-tv .info h2{
+    font-size: 36px;
+    color: white;
+}
+
+#enjoy-tv .info {
+    padding-left: 210px;
+}
+
+#enjoy-tv .info p{
+    font-size: 24px;
+    text-align: left;
+}
+
+.img-ctr{
+    box-shadow:  0px 0px 20px 0px #1b1b1b;
+}
+
+
+@media screen and (max-width: 1060px) {
+    #enjoy-tv{
+        flex-direction: column;
+        justify-items: center;
+    }
+
+    #enjoy-tv .info{
+        width: 100%;
+        text-align: center;
+        padding:  0px;
+    }
+
+    #enjoy-tv .info p{
+        text-align: center;
+    }
+}
+
+

@@ -1,0 +1,21 @@
+@import url(./reset.css);
+
+@import url(./hero-section.css);
+
+@import url(./section.css);
+
+@import url(./faq.css);
+
+@import url(./footer.css);
+
+
+:root{
+    --clr-netflix:#e50914;
+    --clr-section-bg:#000000;
+    --clr-white:#ffffff;
+    --clr-divider: #686565;
+    --clr-bg-quest: #303030;
+}
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
