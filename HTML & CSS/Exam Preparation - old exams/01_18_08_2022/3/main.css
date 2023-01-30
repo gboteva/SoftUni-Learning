@@ -1,0 +1,32 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;400;500&display=swap');
+@import url(./hero.css);
+@import url(./services.css);
+@import url(./info.css);
+@import url(./contact.css);
+
+
+:root{
+    --clr-bg-gray: #f2f0f3;
+    --clr-bg-brown:#bab1ad;
+    --clr-bg-btn:#67784d;
+    --clr-white: #fff;
+}
+
+
+body{
+    font-family: 'Roboto', sans-serif;;
+    margin: 0 100px;
+}
+
+h1, h2, h3, h4, h5{
+    font-family: 'Abril Fatface', cursive;
+}
+
+main{
+    display: grid;
+    grid-template-areas: 
+    "services info"
+    "contact info";
+}
+

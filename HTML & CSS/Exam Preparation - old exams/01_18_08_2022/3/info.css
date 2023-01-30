@@ -1,0 +1,21 @@
+.info{
+    background-color: var(--clr-bg-brown);
+    grid-area: info;
+}
+
+.info li{
+    padding: 30px 20px;
+    margin-right:50px;
+}
+
+.info li>p:first-child{
+    color: var(--clr-white);
+    font-size: 56px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.info li>p:last-child{
+    text-transform: uppercase;
+    font-size: 12px;
+}
