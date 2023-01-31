@@ -1,0 +1,29 @@
+.to-do{
+    display: flex;
+    flex-direction: column;
+    padding: 24px 50px;
+    padding-bottom: 0px;
+    grid-area: to-do;
+}
+
+.to-do h3{
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.to-do>p{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.to-do ul li{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.to-do ul li i{
+    color: var(--clr-green);
+    margin-right: 26px;
+}

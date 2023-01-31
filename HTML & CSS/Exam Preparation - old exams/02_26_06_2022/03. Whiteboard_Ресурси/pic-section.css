@@ -1,0 +1,9 @@
+.pic{
+    grid-area: pic1;
+}
+
+
+.second{
+  grid-area: pic2;
+  display: flex;
+}

@@ -1,0 +1,30 @@
+.other{
+    display: flex;
+    flex-direction: column;
+    padding: 24px 50px;
+    grid-area: other;
+}
+
+.other h3{
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.other ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+.other ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+}
+
+.other ul li p{
+    color: var(--clr-green);
+}
