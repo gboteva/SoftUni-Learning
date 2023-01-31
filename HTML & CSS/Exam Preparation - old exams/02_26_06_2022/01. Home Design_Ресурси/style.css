@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
+
+
+body{
+    font-family: 'Courgette', cursive;
+    background-color: #f5f5f5;
+    padding: 50px 120px;
+}
+
+header{
+    margin-bottom: 20px;
+}
+
+header h1{
+    font-size: 42px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1;
+}
+
+header p{
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #cc2b4c;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: 200px;
+}
+
+.card{
+    width: 300px;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card .img-ctn{
+    margin-bottom: 5px;
+}
+
+.card .content{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.card .content h2{
+    margin-bottom: 10px;
+}
+
+.card .content .divider{
+    width: 90%;
+    height: 1px;
+    background-color:#cc2b4c;
+    margin-bottom: 10px;
+}
+
+.card .content .text{
+    margin-bottom: 20px;
+}
+
+.card:nth-child(1) .content .text{
+  margin-bottom: 40px;
+}
+
+.continue{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+
+.continue p{
+    margin-right: 12px;
+}
+
+.continue i{
+    color: #cc2b4c;
+}
+
+.container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
