@@ -1,0 +1,44 @@
+.news{
+    background-color: var(--clr-bg-darkgray);
+    color: var(--clr-white);
+}
+
+.news h1{
+    font-size: 32px;
+    font-weight:lighter;
+}
+
+.news .line{
+    background-color: var(--clr-white);
+}
+
+
+
+.area-ctn{
+    margin: 0 auto;
+    width: 73%;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.news textarea{
+    resize: none;
+    border-radius: 6px;
+    background-color: var(--clr-bg-search);
+    position: relative;
+    border: none;
+}
+.news textarea::placeholder{
+    position: absolute;
+    top: 8px;
+}
+
+.search{
+    background-color: var(--clr-search-btn);
+    border-radius: 6px;
+    font-size: 22px;
+    padding: 6px 40px;
+}
+

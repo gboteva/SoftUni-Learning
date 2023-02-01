@@ -1,0 +1,31 @@
+.links{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    color: var(--clr-white);
+    background-color: var(--clr-bg-dark);
+}
+
+.links h3{
+    font-weight: 100;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.links .ctn ul li {
+   margin-bottom: 8px;
+}
+
+.links .ctn address{
+    font-style: normal;
+    margin-bottom: 30px;
+}
+
+.links .ctn  .info p{
+   margin-bottom: 8px;
+}
+
+.icons ul{
+    display: flex;
+    justify-content: space-between;
+}

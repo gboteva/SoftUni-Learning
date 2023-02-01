@@ -1,0 +1,26 @@
+.welcome, .services, .news, .links{
+    padding: 30px 240px; 
+    text-align: center;
+}
+
+.welcome h1, .services h1{
+    font-size: 36px;
+    font-weight:lighter;
+}
+
+.welcome .line, .services .line, .news .line{
+    margin: 0 auto;
+    width: 10%;
+    height: 3px;
+    background-color:var(--clr-search-btn);
+    margin-bottom: 16px;
+}
+
+.read-more-btn{
+    margin-top: 36px;
+    color: var(--clr-white);
+    background-color: var(--clr-bg-darkgray);
+    border: none;
+    padding: 8px 24px;
+    border-radius: 20px;
+}

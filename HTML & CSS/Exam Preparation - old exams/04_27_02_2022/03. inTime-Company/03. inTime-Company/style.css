@@ -1,0 +1,41 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
+
+@import url(./reset.css);
+
+@import url(./header.css);
+
+@import url(./welcome.css);
+
+@import url(./services.css);
+
+@import url(./news.css);
+
+@import url(./links.css);
+
+:root{
+    --clr-hero-btn:#008cba;
+    --clr-bg-lightgray:#eef0f1;
+    --clr-bg-darkgray:#393f43;
+    --clr-bg-dark:#2f3539;
+    --clr-search-btn:#6bbfff;
+    --clr-bg-footer:#262b2f;
+    --clr-bg-search:#545a5e;
+    --clr-white:#fff;
+}
+
+body{
+    font-family: Helvetica, sans-serif;
+}
+
+
+footer{
+    background-color: var( --clr-bg-footer);
+    color: var(--clr-white);
+    text-align: center;
+    font-size: 10px;
+    padding: 10px;
+}
+
+footer span{
+    color: var(--clr-hero-btn);
+}

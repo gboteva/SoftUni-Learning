@@ -1,0 +1,64 @@
+header nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 100px; 
+    justify-items: center;
+}
+
+header nav ul{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header nav ul li:first-child{
+    border-bottom: 3px solid var(--clr-search-btn);
+}
+
+header nav div p {
+    font-size: 28px;
+}
+header nav div span{
+    color: var(--clr-search-btn);
+}
+
+header .slide{
+   position: relative;
+   color: var(--clr-white);
+}
+
+header .slide img{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+
+header .slide .badge{
+    background-color: rgb(10, 10, 10, 0.8);
+    width: 34%;
+    padding: 24px;
+    font-size: 36px;
+    position: absolute;
+    top: 220px;
+    left: 200px;
+    
+}
+
+header .slide .badge h1{
+    font-weight: 200;
+    line-height: 1.2;
+}
+
+.btn{
+    font-size: 26px;
+    border-radius: 20px;
+    padding: 3px 30px;
+    color: var(--clr-white);
+    border: none;
+}
+
+.btn.nav{
+    margin-top: 18px;
+    background-color: var(--clr-hero-btn);
+}
