@@ -1,0 +1,20 @@
+.news{
+    background-color: var(--clr-bg-yellow);
+    color: var(--clr-white);
+    font-size: 0.8rem;
+    padding: 12px 20px 5px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.news button{
+    padding: 5px 10px;
+    border: 3px solid var(--clr-white);
+    background: transparent;
+    color: var(--clr-white);
+    font-weight: bold;
+}
+
+footer{
+    text-align: center;
+}

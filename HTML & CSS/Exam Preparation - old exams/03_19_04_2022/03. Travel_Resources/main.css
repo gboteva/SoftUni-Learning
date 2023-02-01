@@ -1,0 +1,25 @@
+@import url(./reset.css);
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
+
+@import url(./header.css);
+
+@import url(./hero.css);
+
+@import url(./features.css);
+
+@import url(./cards.css);
+
+@import url(./news.css);
+
+:root{
+    --clr-bg-yellow:#c9a535;
+    --clr-text: #4e5974;
+    --clr-white:#fff;
+    --clr-bg-btn:#fea201;
+}
+
+
+body{
+    font-family: Helvetica, sans-serif;
+}

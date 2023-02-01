@@ -1,0 +1,74 @@
+header .logo-ctn{
+    background-color: var(--clr-bg-yellow);
+    width:200px;
+    padding: 20px;
+}
+
+header .top-nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+header .top-nav ul li{
+    text-align: center;
+    color: var(--clr-text);
+    font-weight: 500;
+    padding: 10px;  
+}
+
+header .top-nav ul li:hover{
+    background-color: var(--clr-bg-yellow);
+    color: var(--clr-white);
+    cursor: pointer;
+}
+
+header .top-nav ul li i{
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+header .nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+header .nav ul li{
+    padding: 10px;
+}
+
+header .nav ul li:hover{
+    background-color: var(--clr-bg-yellow);
+    cursor: pointer;
+}
+
+header .nav ul a:hover{
+    color: var(--clr-white);
+}
+
+header .nav ul a{
+    text-decoration: none;
+    color: var(--clr-text);
+    font-weight: 500;
+}
+
+header .container{
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    flex-direction: column;
+}
+
+header .container>div>ul>li{
+    margin-right: 50px;
+}
+
+header{
+    position: relative;
+}
+
+header .logo-ctn{
+    position: absolute;
+    top: 30px;
+    left: 80px;
+    z-index: 1;
+}
