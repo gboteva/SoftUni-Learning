@@ -1,0 +1,70 @@
+@media screen and (max-width:800px){
+    nav {
+        flex-direction: column;
+    }
+
+    nav p{
+        margin-bottom: 1rem;
+    }
+
+    nav ul{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+    }
+
+    .trainings{
+        flex-direction: column;
+    }
+
+    .trainings div{
+        width: 50%;
+    }
+
+    .instructors{
+        font-size: 0.9rem;
+    }
+   
+    .instructors-pic{
+        flex-direction: column;
+    }
+
+    .classes li{
+       width: 45%;
+    }
+
+    .getInTouch{
+        flex-direction: column;
+    }
+
+    .form{
+       width: 100%;
+    }
+      
+      .map{
+        width: 100%;
+    }
+
+    .site-footer .wrapper{
+       display: grid;
+       grid-template-areas: 
+       "about about"
+       "site contact"
+       ;
+    }
+
+    .site-footer .about {
+        grid-area: about;
+    }
+
+    .site-footer .sitemap {
+        grid-area: site;
+        padding-right: 180px;
+    }
+
+    .site-footer .contacts{
+        contact
+    }
+
+}
