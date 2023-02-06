@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200&display=swap');
+
+
+:root{
+    --clr-green:#a4c639;
+    --clr-text: #676767;
+    --clr-bg:#f7f7f7;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+section{
+   width: 60%;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+}
+
+section h1{
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+section h1 span{
+    color: var(--clr-green);
+}
+
+section>p{
+    color: var(--clr-text);
+    font-size: 14px;
+    margin-bottom: 64px;
+}
+
+.card {
+    width: 300px;
+    text-align: left;
+}
+
+.card .content {
+    padding: 18px;
+    background-color: var(--clr-bg);
+}
+
+.card .content h2{
+    font-size: 15px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.card .content p{
+    color: var(--clr-text);
+    line-height: 1.8;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.card .content button{
+    color: white;
+    background-color: var(--clr-green);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin-bottom: 8px;
+}
+
+
+section ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+}
+
