@@ -1,0 +1,76 @@
+header .navigation{
+    padding: 20px 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+header .navigation ul{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .navigation ul li{
+    font-weight: bold;
+    color: var(--clr-text-nav);
+}
+
+header .hero{ 
+    background: url(./images/header-bg.png);
+    background-size:contain;
+    background-repeat:round;
+    display: flex;
+    position: relative;
+}
+
+header .hero .dog-ctn{
+    width: 600px;
+    position: relative;
+}
+
+header .hero .dog-ctn img{
+    position:relative;
+    top: 60px;
+    left: 450px;
+}
+
+.article{
+   width: 320px;
+   color: var(--clr-white);
+   position: absolute;
+   top: 50%;
+   left: 250px;
+   transform: translateY(-50%);
+ 
+}
+
+.article h1{
+    font-size: 38px;
+}
+
+.article h1:first-child{
+    font-weight: 2;
+    line-height: 1;
+}
+
+.article h1:nth-child(2){
+    margin-bottom: 5px;
+}
+
+.article p{
+    line-height: 2;
+    margin-bottom: 36px;
+}
+
+.btn{
+    border-radius: 18px;
+    background-color: var(--clr-white);
+    padding: 8px 20px;
+    cursor: pointer;
+    border: 1px solid var(--clr-red-text);
+}
+
+.btn-hero{
+    color: var(--clr-red-text);
+} 
