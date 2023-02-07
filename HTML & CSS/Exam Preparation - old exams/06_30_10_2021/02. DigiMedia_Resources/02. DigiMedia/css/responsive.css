@@ -1,0 +1,49 @@
+@media (max-width:600px){
+    .hero h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+    .hero img{
+        display: none;
+    }
+
+    .hero p{
+        text-align: center;
+    }
+
+    .hero-btns {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .hero-btns a{
+        width: 50%;
+        display: block;
+        margin-left: 120px;
+    }
+
+    h2, h5{
+        text-align: center;
+    }
+
+    .about p{
+        text-align: center;
+    }
+
+    .contact-btn a:last-child{
+        display: none;
+    }
+
+    .contact-nav li{
+        display: block;
+    }
+
+   footer h6{
+        padding-bottom: 5px;
+    }
+
+  footer .container{
+    padding: 0px 60px;
+  }
+}
