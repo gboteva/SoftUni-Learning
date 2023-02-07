@@ -1,0 +1,57 @@
+.hero{
+    display: flex;
+    flex-direction: column;
+    padding: 15px 30px;
+    padding-bottom: 0;
+}
+
+
+.hero nav{
+    text-align: right;
+}
+
+.hero nav p{
+    display: inline-block;
+    margin: 0;
+}
+
+
+.content-hero{
+    width: 475px;   
+}
+
+.content-hero h2{
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.content-hero h2 span{
+    font-weight: 200;
+}
+
+.content-hero p{
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.line{
+    width: 2px;
+    height: 100px;
+    background-color: gray;
+}
+
+
+.wrapper{
+    height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.img-ctn img{
+    height: 560px;
+}
+
+

@@ -1,0 +1,63 @@
+.twins{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.twins .line{
+    width: 100px;
+    height: 2px;
+}
+
+.twins .title-wrapper{
+    display: flex;
+    align-items:center;
+    justify-content: start;
+    gap: 20px;
+    line-height: 1;
+    margin-bottom: 28px;
+}
+
+.twins .content-hero{
+    width: 620px;   
+}
+
+.twins .content-hero h2{
+    margin: 0;
+    font-weight: 200;
+}
+
+.twins .content-hero h2 span{
+    font-weight: 800;
+}
+
+.icon-ctn{
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+}
+
+div.icon{
+    width: 30px;
+    height: 30px;
+    background-color: #909090;
+    vertical-align: middle;
+}
+
+i{
+    margin-left: 8px;
+    color: white;
+    vertical-align: middle;
+}
+
+.reverse{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 80px 30px;
+}
+
+.reverse .wrapper-img{
+   width: 800px;
+}
