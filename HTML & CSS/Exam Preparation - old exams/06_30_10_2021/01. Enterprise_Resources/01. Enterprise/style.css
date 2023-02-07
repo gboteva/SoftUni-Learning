@@ -1,0 +1,72 @@
+body{
+    font-family: Helvetica, sans-serif; 
+}
+
+article{
+    width: 60%;
+    background-color: #f6f8f9;
+    padding: 0px 50px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
+    color: #646f79;
+    align-items: center;
+}
+
+.content{
+    width: 40%;
+}
+
+article .sub-title{
+    font-size: 12px;
+    font-weight: bold;
+    color: #646f79;
+    margin: 0;
+    margin-bottom: 18px;
+}
+
+article h1{
+    font-size: 38px;
+    font-weight: 100;
+    margin: 0;
+    margin-bottom: 24px;
+}
+
+article .text{
+    margin: 0;
+    line-height: 2;
+    font-size: 20px;
+    color: #b6bcc2;
+    margin-bottom: 28px;
+}
+
+button{
+    padding: 14px 30px;
+    font-size: 16px;
+   border-radius: 4px;
+   margin-right: 14px;
+   letter-spacing: 1px;
+   font-weight: bold;
+}
+
+.sales{
+    color: white;
+    background-color: #786eff;
+    border: 2px solid #786eff;
+    
+}
+
+.more{
+    background-color: transparent;
+    border: 2px solid gray;
+}
+
+.img-ctn{
+   padding: 60px 30px;
+   padding-bottom: 0;
+}
+
+.img-ctn img{
+    height: 400px;
+    object-fit: cover;
+}
