@@ -1,0 +1,44 @@
+.futures{
+    background-color: var(--clr-bg-dark);
+    color: white;
+    padding: 64px;
+}
+
+.futures ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.card {
+    text-align: center;
+    padding: 16px;
+}
+
+.card i{
+    padding: 26px;
+    font-size: 46px;
+    background-color: var(--clr-bg-red-btn);
+    margin-bottom: 16px;
+}
+
+.card .icon-ctn{
+    border-bottom: 1px solid gray ;
+    margin-bottom: 18px;
+}
+
+.card .icon-ctn h3{
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 18px;
+}
+
+.card .card-content{
+    color: gray;
+}
+
+.no-icon h3{
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 18px;
+}

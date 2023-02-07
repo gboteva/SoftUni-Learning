@@ -1,0 +1,37 @@
+.white{
+    text-align: center;
+    padding: 64px;
+    color: rgb(97, 97, 97);
+}
+
+.white h2{
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom:6px;
+}
+
+.white p{
+    font-size: 14px;
+    color: rgb(121, 121, 121);
+    margin-bottom: 18px;
+}
+
+.white button{
+    background-color: #1b9772;
+    color: white;
+    letter-spacing: 2px;
+    border: none;
+    padding: 12px 32px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.green{
+    background-color: #1b9772;
+   
+}
+
+.green p{
+    color: rgb(167, 167, 167);
+}
