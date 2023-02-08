@@ -1,0 +1,19 @@
+@media screen and (max-width:600px) {
+   
+    .thumbnails{
+        flex-direction: column;
+    }
+
+    .thumbnails > div{
+        width: 100%;
+        margin: 0 0 2em 0;
+    }
+
+    .thumbnails a img:first-child{
+        height: 320px;
+    } 
+
+    footer p{
+        font-size: 25px;
+    }
+}
