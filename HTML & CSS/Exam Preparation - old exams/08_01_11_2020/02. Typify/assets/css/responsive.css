@@ -1,0 +1,62 @@
+@media (max-width:600px) {
+    .banner {
+        padding: 1em 0;
+    }
+
+    .banner h2 {
+        width: 95%;
+    }
+
+
+    .wrapper>.inner {
+        width: 95%;
+    }
+
+    .wrapper {
+        padding: 0.5em 0;
+    }
+
+
+    .features {
+        flex-direction: column;
+    }
+
+    .feature {
+        width: 100%;
+    }
+
+    .grid-form {
+        flex-direction: column;
+    }
+
+    .wrapper>.inner.narrow {
+        width: 95%;
+    }
+
+    .grid-form .form-control.narrow {
+        width: 100%;
+    }
+
+    input[type="submit"],
+    .button {
+        padding: 0 10em;
+    }
+
+    .footer:before {
+        background-color: #ddd;
+        content: "";
+        height: 1px;
+        left: 5%;
+        position: absolute;
+        top: 0;
+        width: 95%;
+    }
+    .footer{
+        padding: 1em 0 1em 0;
+    }
+
+    .footer .copyright{
+        margin: 0;
+    }
+
+}
