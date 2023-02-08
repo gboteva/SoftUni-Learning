@@ -1,0 +1,45 @@
+.table-with{
+    margin: 250px;
+    margin-bottom: 100px;
+}
+
+.table-with h2{
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.table-with p{
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+ table {
+    border-collapse:collapse;
+}
+
+table td{
+    font-size: 20px;
+    padding: 18px;
+    border: none;
+}
+
+tr:nth-child(odd){
+    background-color: var(--clr-tbl-dark);
+}
+
+tr:nth-child(even){
+    background-color: var(--clr-tbl-light);
+}
+
+td.radius{
+    border-top-left-radius: 12px;
+}
+
+td.bottom{
+    border-bottom-left-radius: 12px;
+} 
+
+td:nth-child(n+3),td:nth-child(n+2) {
+    padding: 0 100px;
+}

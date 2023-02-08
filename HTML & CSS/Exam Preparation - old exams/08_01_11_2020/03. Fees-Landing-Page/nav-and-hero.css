@@ -1,0 +1,153 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 130px;
+}
+
+.navigation .logo-ctn {
+  color: var(--clr-purple);
+  width: 150px;
+}
+
+.navigation nav ul {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: normal;
+}
+
+.navigation nav ul li:not(:last-child) {
+  margin-right: 18px;
+}
+
+.hero {
+  background-color: var(--clr-bg);
+  height: 470px;
+  position: relative;
+}
+
+.hero > img {
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -90px;
+}
+
+.hero h2 {
+  font-size: 38px;
+  font-weight: 500;
+  color: white;
+  position: relative;
+  left: 48%;
+  top: 70px;
+  
+
+}
+
+.hero .card {
+  width: 540px;
+  background-color: white;
+  border-radius: 12px;
+  position: relative;
+  top: 150px;
+ 
+}
+
+.card .content-ctn {
+  padding: 32px 16px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.card .content-ctn h1 {
+  font-size: 30px;
+  color: var(--clr-bg);
+  margin-bottom: 8px;
+}
+
+.card .content-ctn p {
+  font-size: 22px;
+  margin-bottom: 90px;
+}
+
+.card .content-ctn a {
+  border-radius: 50px;
+  background-color: var(--clr-purple);
+  padding: 20px 42px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.card .price {
+  padding: 20px 42px;
+  text-align: center;
+  color: white;
+  background: rgb(4, 156, 62);
+  background: linear-gradient(
+    90deg,
+    rgba(4, 156, 62, 1) 0%,
+    rgba(119, 233, 163, 1) 100%
+  );
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.card .price p:first-child {
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.card .content-ctn p.first,
+.card .content-ctn p.second {
+  margin-bottom: 16px;
+}
+
+.card .content-ctn.fund {
+  padding-bottom: 32px;
+}
+
+.card .price.fund {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(76, 107, 136);
+  background: linear-gradient(
+    90deg,
+    rgba(76, 107, 136, 1) 0%,
+    rgba(98, 155, 208, 1) 100%
+  );
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.card .price.proff {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(76, 57, 167);
+  background: linear-gradient(
+    90deg,
+    rgba(76, 57, 167, 1) 0%,
+    rgba(140, 125, 225, 1) 100%
+  );
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.card .divider {
+  width: 2px;
+  height: 80px;
+  background-color: rgb(221, 220, 220);
+}
+
+.taxes{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.taxes li article{
+}

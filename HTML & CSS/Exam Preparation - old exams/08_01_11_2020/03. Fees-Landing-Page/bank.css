@@ -1,0 +1,29 @@
+.bank{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 100px;
+   margin-top: 0px;
+}
+
+.bank h2{
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.bank p{
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+footer{
+    background-color: var(--clr-bg);
+    color: #898ba8;
+    text-align: center;
+    padding: 16px;
+}
+
+.bank-info{
+   width: 1020px;
+}
+
