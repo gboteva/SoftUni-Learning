@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+
+@import url(./header.css);
+
+@import url(./diploma.css);
+
+@import url(./sigh-up.css);
+@import url(./footer.css);
+
+:root{
+    --clr-blue:#42abf8;
+    --clr-text:#454545;
+    --clr-white: #fff;
+    --clr-bg:#29394b;
+    --clr-light-bg:#f4f5f7;
+}
+
+
+body{
+    font-family: 'Lato', sans-serif;
+    color: var(--clr-text);
+}
+
+h1,h2,h3,h4{
+    font-family: 'Montserrat', sans-serif;
+}
