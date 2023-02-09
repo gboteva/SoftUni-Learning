@@ -1,0 +1,45 @@
+.life{
+    display: flex;
+}
+
+.life div{
+    width: 50%;
+}
+
+.life img{
+    width: 100%;
+    height: 900px;
+    object-fit: cover;
+}
+
+.life div:nth-child(2){
+    display: flex;
+    align-items: center;
+    background-color: var(--clr-gray-bg);
+}
+
+.life div:nth-child(2) img{
+   padding: 20px 0px;
+}
+
+.life .title {
+    margin: 0px 80px;
+}
+
+.life .title h2{
+    text-transform: uppercase;
+    font-size: 200px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.life .title p{
+    font-size: 48px;
+    font-weight: 100;
+}
+
+.life .title span{
+    color: var(--clr-red);
+    font-weight: bold;
+    text-transform: uppercase;
+}

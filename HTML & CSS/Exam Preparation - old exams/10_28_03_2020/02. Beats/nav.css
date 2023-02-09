@@ -1,0 +1,15 @@
+header{
+    padding: 40px;
+}
+
+nav ul{
+    width: 100%;
+    text-align: center;
+}
+nav ul li{
+    color: var(--clr-nav);
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 250px;
+    text-transform: uppercase;
+}

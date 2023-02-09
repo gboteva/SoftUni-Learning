@@ -1,0 +1,42 @@
+.music{
+    text-transform: uppercase;
+    background-color: var(--clr-bg);
+    text-align: center;
+    padding: 30px;
+    font-size: 26px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container p{
+    color: var(--clr-nav);
+    margin-left: 20px;
+    font-size: 26px;
+}
+
+.container p span{
+    color: white;
+} 
+
+a{
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+    position: relative;
+}
+
+a:after{
+    content: ' ';
+    width: 170px;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    top: 45px;
+    left: 10px;
+}

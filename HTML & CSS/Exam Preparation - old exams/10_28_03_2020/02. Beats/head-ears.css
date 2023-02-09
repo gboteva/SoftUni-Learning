@@ -1,0 +1,81 @@
+.solo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+}
+
+.solo article{
+    width:24%;
+}
+
+.solo h1{
+    text-transform: uppercase;
+    font-size: 56px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.solo p{
+    line-height: 2;
+    font-weight: 300;
+    margin-bottom: 40px;
+   
+}
+
+.solo button{
+    all: unset;
+    text-transform: uppercase;
+    background-color: var(--clr-red);
+    color: white;
+    padding: 16px 64px;
+    border-radius: 50px;
+}
+
+.beats{
+    background-color: var(--clr-light-bg);
+    padding: 50px;
+}
+
+.beats.solo article{
+    width:23%;
+    margin-right: 80px;
+}
+
+.beats.solo article h1{
+    margin-bottom: 0px;
+    text-align: right;
+}
+
+.beats h3{
+    text-transform: uppercase;
+    text-align: right;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.beats h3 span{
+    font-weight: normal;
+}
+
+.beats p{
+    font-size: 16px;
+}
+
+p.price{
+    font-weight: bold;
+    font-size: 38px;
+    display: inline-block;
+    margin-right: 30px;
+    margin-bottom: 0;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.ctn{
+    vertical-align: middle;
+}
+
+
+
+
