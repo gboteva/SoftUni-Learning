@@ -1,0 +1,59 @@
+@media (max-width: 768px){
+    
+    main .main-movie ul li:first-child {
+        display: none;
+    }
+
+    iframe{
+       all: unset;
+       width: 500px;
+       height: 300px;      
+    }
+
+    .movie{
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .movies{
+        margin: 100px 0;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    footer{
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 414px){
+    iframe{
+        all: unset;
+        width: 90%;
+        height: 300px;   
+     }
+
+   .main-movie ul li.main-movie-trailer{
+        padding: 0px;
+     }
+
+     .movies{
+        margin: 20px 0px;
+     }
+
+     .movie-list{
+        flex-direction: column;
+        align-items: center;
+     }
+
+     .movie{
+        height: 300px;
+        width: 90%;
+    }
+
+    footer{
+        font-size: 0.7em;
+    }
+}
