@@ -1,0 +1,48 @@
+@media (max-width: 1236px){
+    .big_article {
+        width: 15em;
+        height: 16em;
+    }
+
+    .big_article .article{
+        width: 15em;
+        height: 16em;
+    }
+
+    .big_article .article .article_text h3{
+        font-size: 1em;
+    }
+
+    .row_articles{
+        flex-direction: column;
+    }
+
+    .big_article:nth-child(1){
+        margin-bottom: 10px;
+    }
+
+    .big_article:nth-child(2){
+        margin-top: 0px;
+    }
+}
+
+
+@media (max-width: 768px){
+    main{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer{
+       flex-direction: column;
+       text-align: center;
+    }
+
+    h1{
+        font-size: 1.5em;
+    }
+
+    .subtitle{
+        font-size: 0.6em;
+    }
+}
