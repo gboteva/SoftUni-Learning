@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap');
+
+:root{
+    --clr-dark: #001216;
+    --clr-blue:#00f1fa;
+    --clr-footer:#d9ebeb;
+}
+
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+}
+
+.article{
+    width: 805px;
+    height: 810px;
+    border: 2px solid black;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header{
+    background-color: var(--clr-dark);
+    padding: 12px;
+}
+
+header h1{
+    color: var(--clr-blue);
+    font-size: 50px;
+}
+
+header p{
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: white;
+}
+
+main{
+    padding: 36px 12px;
+   vertical-align: top;
+}
+
+.marbie{
+    width: 300px;
+    padding: 0px 20px;
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.marbie .img-ctn{
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 250px;
+    height: 250px;
+}
+
+.marbie p{
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+.text{
+    width: 50%;
+    display: inline-block;
+    margin-left: 26px;
+    padding-top: 10px;
+    vertical-align: top;
+    line-height: 1.4;
+}
+
+.text>p{
+   font-size: 20px;
+   letter-spacing: 1.5px;
+}
+
+.facts{
+    width: 248px;
+    color: white;
+    background-color: var(--clr-dark);
+    font-size: 24px;
+    font-weight: 550;
+    letter-spacing: 1.5px;
+    padding: 3px 0px;
+    padding-left: 12px;
+}
+
+footer{
+    background-color: var(--clr-footer);
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding: 5px 25px;
+}
+
+footer span{
+    font-weight: bold;
+}
