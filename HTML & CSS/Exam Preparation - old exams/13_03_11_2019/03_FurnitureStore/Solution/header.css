@@ -1,0 +1,48 @@
+header{
+    background-color: var(--clr-red);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    padding: 26px 52px;
+}
+
+header nav ul{
+    display: flex;
+}
+
+header nav ul li:not(:last-child){
+    margin-right: 26px;
+}
+
+header form{
+    display: flex;
+    align-items: center;
+}
+
+header form input{
+    width: 500px;
+    padding: 12px;
+    border: none;
+}
+
+header form input::placeholder{
+    font-size: 16px;
+}
+
+header form button{
+    all: unset;
+    background-color: var(--clr-gray);
+    padding: 12px 34px;
+}
+
+header .account{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .account i{
+    margin-right: 8px;
+}

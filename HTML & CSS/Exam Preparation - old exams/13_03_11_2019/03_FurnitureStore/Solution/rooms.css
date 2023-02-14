@@ -1,0 +1,32 @@
+.rooms{
+    margin: 30px 150px;
+}
+
+.rooms ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.room{
+    width: 360px;
+}
+
+.room .img-ctn{
+    width: 100%;
+    height: 360px;
+    margin-bottom: 10px;
+}
+
+
+.img-ctn img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.room p.room-name{
+    color: var(--clr-dark-gray);
+    font-size: 24px;
+    text-align: center;
+}

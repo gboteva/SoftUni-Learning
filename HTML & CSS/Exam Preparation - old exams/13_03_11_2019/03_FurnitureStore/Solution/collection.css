@@ -1,0 +1,32 @@
+.collection{
+    margin: 30px 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.collection .collection__img{
+    width: 65%;
+}
+
+.collection__info h1{
+    color: var(--clr-red);
+    font-size: 50px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    margin-top: 60px;
+}
+
+.collection__info p{
+    color: var(--clr-dark-gray);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.collection__info button.shop{
+    all: unset;
+    color: white;
+    background-color: var(--clr-red);
+    padding: 16px;
+    border-radius: 6px;
+    font-size: 20px;
+}

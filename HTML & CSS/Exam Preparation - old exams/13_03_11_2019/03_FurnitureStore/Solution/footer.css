@@ -1,0 +1,40 @@
+footer{
+    margin: 30px 150px;
+    font-size: 20px;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 6px;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+}
+
+nav ul li:not(:last-child){
+    margin-right: 20px;
+}
+
+nav ul li:first-of-type, form p{
+    font-weight: bold;
+    font-size: 22px;
+}
+
+form.contacts{
+    display: flex;
+    gap: 36px;
+}
+
+form.contacts button{
+   all: unset;
+   background-color: var(--clr-gray);
+   padding: 8px 76px;
+   border-radius: 6px;
+   font-weight: 400;
+}
+
+.icon-ctn i{
+    font-size: 36px;
+    margin-right: 6px;
+}

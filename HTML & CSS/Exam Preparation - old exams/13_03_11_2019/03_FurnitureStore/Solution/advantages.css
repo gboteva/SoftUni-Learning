@@ -1,0 +1,39 @@
+.advantages{
+    margin: 30px 150px;
+    background-color: var(--clr-gray);
+    padding: 48px;
+}
+
+.advantages ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card{
+    width: 400px;
+    text-align: center;
+}
+
+.card .img-card{
+    margin: 0 auto;
+    width:180px;
+    border-radius: 100%;
+    background-color: var(--clr-bg);
+    padding: 26px;
+    margin-bottom: 10px;
+}
+
+.card .img-card img{
+    width: 100%;
+    height: 100%;
+}
+
+.card h2{
+    margin-bottom: 6px;
+    color: var(--clar-h2)
+}
+
+.card p{
+    font-size: 20px;
+    color: var(--clr-p);
+}

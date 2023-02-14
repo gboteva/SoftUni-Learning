@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+
+
+@import url(./header.css);
+@import url(./rooms.css);
+@import url(./collection.css);
+@import url(./advantages.css);
+@import url(./footer.css);
+
+:root{
+    --clr-red:#f93700;
+    --clr-gray: #b6afaf;
+    --clr-dark-gray:#7d7d7d;
+    --clr-bg:#f0e4e4;
+    --clar-h2: rgb(50, 49, 49);
+    --clr-p:rgb(74, 73, 73);
+}
+
+body{
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--clr-bg);
+}
