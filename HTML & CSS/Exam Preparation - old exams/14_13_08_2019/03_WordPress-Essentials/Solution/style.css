@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+
+@import url(./nav-and-hero.css);
+@import url(./sections.css);
+@import url(./footer.css);
+
+:root{
+    --clr-primary:#234465;
+    --clr-text:#919b9e;
+    --clr-orange:#ffa000;
+    --clr-link:#337ab7;
+    --clr-bg:#f2f2f2;
+    --clr-bg-themes:#dadada;
+}
+
+
+body{
+    font-family: 'Lato', sans-serif;
+}
