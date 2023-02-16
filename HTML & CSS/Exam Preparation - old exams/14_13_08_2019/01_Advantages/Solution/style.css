@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+
+
+body{
+    font-family: 'Lato', sans-serif;
+    position: relative;
+}
+
+section{
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+section div{
+    width: 120px;
+    padding: 6px;
+    background-color: #42abf8;
+    color: white;
+    text-align: center;
+    position: relative;
+    left: 100%;
+    transform: translate(-100%);
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+section ul li{
+    background-color: #f4f5f7;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    padding-right: 36px;
+    font-size: 14px;
+}
+
+section ul li:not(:last-child){
+    margin-bottom: 4px;
+}
+
+section ul li:first-child{
+    border-top-left-radius: 10px;
+}
+
+section ul li:last-child{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+section ul li i{
+    color: #23be5e;
+    font-size: 20px;
+}
+
