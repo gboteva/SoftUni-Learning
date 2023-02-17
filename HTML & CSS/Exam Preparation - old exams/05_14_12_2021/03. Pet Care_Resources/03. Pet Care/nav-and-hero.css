@@ -1,76 +1,73 @@
-header .navigation{
-    padding: 20px 200px;
+
+header {
+    margin: 36px 350px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    font-size: 1.15rem;
 }
 
 
-header .navigation ul{
-    width: 30%;
+header nav ul{
     display: flex;
-    justify-content: space-between;
 }
 
-header .navigation ul li{
+header nav ul li{
+    color: var(--clr-nav);
     font-weight: bold;
-    color: var(--clr-text-nav);
+    cursor: pointer;
 }
 
-header .hero{ 
-    background: url(./images/header-bg.png);
-    background-size:contain;
-    background-repeat:round;
-    display: flex;
+header nav ul li:not(:last-child){
+    margin-right: 50px;
+}
+
+.hero{
     position: relative;
+    color: white;
+    min-height: 1000px;
 }
 
-header .hero .dog-ctn{
-    width: 600px;
-    position: relative;
+.hero .hero-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-header .hero .dog-ctn img{
-    position:relative;
-    top: 60px;
-    left: 450px;
+.hero .hero-dog{
+    position: absolute;
+    top: 140px;
+    left:25%;
+    height: 850px
 }
 
-.article{
-   width: 320px;
-   color: var(--clr-white);
-   position: absolute;
-   top: 50%;
-   left: 250px;
-   transform: translateY(-50%);
- 
+.hero .info{
+    width: 350px;
+    position: absolute;
+    top: 250px;
+    left:18%;
 }
 
-.article h1{
-    font-size: 38px;
+.hero .info h1{
+    font-weight: 200;
+    font-size: 4.5rem;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: white;
 }
 
-.article h1:first-child{
-    font-weight: 2;
-    line-height: 1;
-}
-
-.article h1:nth-child(2){
-    margin-bottom: 5px;
-}
-
-.article p{
+.hero .info p{
     line-height: 2;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 
 .btn{
-    border-radius: 18px;
-    background-color: var(--clr-white);
-    padding: 8px 20px;
-    cursor: pointer;
-    border: 1px solid var(--clr-red-text);
+    all: unset;
+    color: var(--clr-red);
+    background-color: white;
+    border: 1px solid var(--clr-border);
+    border-radius: 32px;
+    font-weight: bold;
+    padding: 16px 48px;
 }
-
-.btn-hero{
-    color: var(--clr-red-text);
-} 

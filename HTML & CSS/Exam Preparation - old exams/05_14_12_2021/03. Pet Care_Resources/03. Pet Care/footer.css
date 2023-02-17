@@ -1,19 +1,29 @@
 footer{
-    padding: 50px 300px;
     display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    color: var(--clr-gray-text);
+    justify-content: space-evenly;
+    padding: 100px 200px;
 }
 
-.bottom-nav{
-    width: 25%;
+footer h3{
+    color: var(--clr-text-dark);
+    margin-bottom: 32px;
+    font-size: 1.8rem;
+    font-weight: 550;
 }
 
-h3{
-    margin-bottom: 20px;
+footer li, address{
+    color: rgb(151, 151, 151);
+    font-size: 1.1rem;
+    font-weight: 550;
+    margin-bottom: 16px;
+    font-style: normal;
 }
 
-li, img{
-    margin-bottom: 15px;
+footer img{
+    margin-bottom: 32px;
 }
+
+footer .ctn:last-child{
+    width: 300px;
+}
+
