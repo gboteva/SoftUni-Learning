@@ -35,6 +35,16 @@ JS Frond-End Module:
 * DOM and Events;
 * HTTP & REST
 
+MY SQL
+* Databases Introduction. Data Definition and Datatypes
+* Basic CRUD
+* Built-in Functions
+* Data Aggregation
+* Table Relations
+* Subqueries and JOINs
+* Database Programmability and Transactions
+* Old exams
+
  
 Data Structures - Fundamentals:
 * Data Structures and Complexity
