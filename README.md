@@ -1,5 +1,5 @@
 # SoftUniExercises
-This repository contains java code from SoftUni professional modules:
+This repository contains source code (Java, HTML, CSS, JS) from SoftUni professional modules:
 
 Fundamentals Module: 
 * Arrays, Lists, Methods, Associative arrays, Regular expressions;
@@ -19,9 +19,35 @@ OOP Module:
 * Exeptions and error handling;
 * Unit Testing and Test Driven Development;
 * Design patterns;
+
+HTML&CSS Module:
+* HTML Structure;
+* CSS & Typography
+* CSS Box Model
+* Position & Grid
+* Flexbox
+* Media Queries
+
+JS Frond-End Module:
+* JS Syntax - Fundamentals;
+* Functions and Statements;
+* Objects and Classes;
+* DOM and Events;
+* HTTP & REST
+
+MY SQL
+* Databases Introduction. Data Definition and Datatypes
+* Basic CRUD
+* Built-in Functions
+* Data Aggregation
+* Table Relations
+* Subqueries and JOINs
+* Database Programmability and Transactions
+* Old exams
+
  
- Data Structures - Fundamentals:
- * Data Structures and Complexity
- * Linear Data Structures
- * Trees Representation and Traversal (BFS, DFS)
- * Heaps, BST
+Data Structures - Fundamentals:
+* Data Structures and Complexity
+* Linear Data Structures
+* Trees Representation and Traversal (BFS, DFS)
+* Heaps, BST
