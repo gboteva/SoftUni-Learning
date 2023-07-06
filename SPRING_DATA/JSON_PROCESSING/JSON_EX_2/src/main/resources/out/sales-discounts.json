@@ -1,0 +1,222 @@
+[
+  {
+    "carBaseInfoDTO": {
+      "make": "Renault",
+      "model": "Alaskan",
+      "travelledDistance": 21447
+    },
+    "CustomerName": "Lino Subia",
+    "discount": 15.0,
+    "price": 414.29,
+    "priceWithDiscount": 352.14
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Opel",
+      "model": "Astra",
+      "travelledDistance": 922336854775807
+    },
+    "CustomerName": "Kristian Engberg",
+    "discount": 15.0,
+    "price": 377.30,
+    "priceWithDiscount": 320.70
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Mercedes",
+      "model": "W212",
+      "travelledDistance": 2147647
+    },
+    "CustomerName": "Marcelle Griego",
+    "discount": 10.0,
+    "price": 2080.03,
+    "priceWithDiscount": 1872.02
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Ferrari",
+      "model": "250 GTO",
+      "travelledDistance": 214747
+    },
+    "CustomerName": "Teddy Hobby",
+    "discount": 10.0,
+    "price": 1570.21,
+    "priceWithDiscount": 1413.18
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Chevy",
+      "model": "Cruze",
+      "travelledDistance": 9223372034775807
+    },
+    "CustomerName": "Jimmy Grossi",
+    "discount": 20.0,
+    "price": 2214.21,
+    "priceWithDiscount": 1771.36
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Renault",
+      "model": "Espace",
+      "travelledDistance": 9223375807
+    },
+    "CustomerName": "Ann Mcenaney",
+    "discount": 15.0,
+    "price": 2057.85,
+    "priceWithDiscount": 1749.17
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Toyota",
+      "model": "Tacoma",
+      "travelledDistance": 922337807
+    },
+    "CustomerName": "Emmitt Benally",
+    "discount": 15.0,
+    "price": 430.88,
+    "priceWithDiscount": 366.24
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Lamborghini",
+      "model": "Gallardo",
+      "travelledDistance": 923372054775807
+    },
+    "CustomerName": "Audrea Cardinal",
+    "discount": 10.0,
+    "price": 4292.36,
+    "priceWithDiscount": 3863.12
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Nissan",
+      "model": "GT-R",
+      "travelledDistance": 96854775807
+    },
+    "CustomerName": "Louann Holzworth",
+    "discount": 10.0,
+    "price": 1771.59,
+    "priceWithDiscount": 1594.43
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Fiat",
+      "model": "Freemont",
+      "travelledDistance": 21473647
+    },
+    "CustomerName": "Rema Revelle",
+    "discount": 15.0,
+    "price": 402.63,
+    "priceWithDiscount": 342.23
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Seat",
+      "model": "Ibiza",
+      "travelledDistance": 213647
+    },
+    "CustomerName": "Kristian Engberg",
+    "discount": 20.0,
+    "price": 4402.79,
+    "priceWithDiscount": 3522.23
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Citroen",
+      "model": "C4",
+      "travelledDistance": 213647
+    },
+    "CustomerName": "Louann Holzworth",
+    "discount": 0.0,
+    "price": 1556.72,
+    "priceWithDiscount": 1556.72
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Alfa Romeo",
+      "model": "Giulietta",
+      "travelledDistance": 2036854775807
+    },
+    "CustomerName": "Ann Mcenaney",
+    "discount": 15.0,
+    "price": 2622.66,
+    "priceWithDiscount": 2229.26
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Rolls-Royce",
+      "model": "Dawn",
+      "travelledDistance": 214647
+    },
+    "CustomerName": "Audrea Cardinal",
+    "discount": 30.0,
+    "price": 2633.25,
+    "priceWithDiscount": 1843.27
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Chevy",
+      "model": "Corvette",
+      "travelledDistance": 92233720375807
+    },
+    "CustomerName": "Zada Attwood",
+    "discount": 10.0,
+    "price": 372.96,
+    "priceWithDiscount": 335.66
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Nissan",
+      "model": "GT-R",
+      "travelledDistance": 2143647
+    },
+    "CustomerName": "Cinthia Lasala",
+    "discount": 10.0,
+    "price": 369.81,
+    "priceWithDiscount": 332.82
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Dacia",
+      "model": "Logan",
+      "travelledDistance": 213647
+    },
+    "CustomerName": "Louann Holzworth",
+    "discount": 0.0,
+    "price": 1306.85,
+    "priceWithDiscount": 1306.85
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Nissan",
+      "model": "370Z",
+      "travelledDistance": 21477
+    },
+    "CustomerName": "Lino Subia",
+    "discount": 20.0,
+    "price": 411.51,
+    "priceWithDiscount": 329.20
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Seat",
+      "model": "Toledo",
+      "travelledDistance": 21483647
+    },
+    "CustomerName": "Francis Mckim",
+    "discount": 25.0,
+    "price": 1697.65,
+    "priceWithDiscount": 1273.23
+  },
+  {
+    "carBaseInfoDTO": {
+      "make": "Renault",
+      "model": "Captur",
+      "travelledDistance": 9223807
+    },
+    "CustomerName": "Natalie Poli",
+    "discount": 10.0,
+    "price": 1358.29,
+    "priceWithDiscount": 1222.46
+  }
+]
