@@ -1,0 +1,25 @@
+@Configuration
+public class ApplicationBeanConfiguration {
+
+    @Bean
+    public ModelMapper modelMapper(){
+        ModelMapper modelMapper = new ModelMapper();
+
+        modelMapper.createTypeMap(Category.class, CategoryWithCountOfProductAndProductsSumAndAvgDTO.class)
+                .addMapping(Category::getCount, CategoryWithCountOfProductAndProductsSumAndAvgDTO::setProductsCount)
+                .addMapping(Category::getAvg, CategoryWithCountOfProductAndProductsSumAndAvgDTO::setAveragePrice)
+                .addMapping(Category::getSum, CategoryWithCountOfProductAndProductsSumAndAvgDTO::setTotalRevenue);
+
+
+        return modelMapper;
+    }
+
+    @Bean
+    public Gson gson(){
+        return new GsonBuilder()
+                .excludeFieldsWithoutExposeAnnotation()
+                .setPrettyPrinting()
+                .create();
+    }
+
+}
