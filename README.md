@@ -45,6 +45,17 @@ MY SQL
 * Database Programmability and Transactions
 * Old exams
 
+SPRING DATA:
+*DB Apps Intro;
+* ORM Fundamentals;
+* Intro to Hibernate;
+* Hibernate Code First;
+* Spring Data Intro
+* Spring Data Advanced Querying
+* Spring Data Auto Mapping Objects
+* JSON Processing
+* XML Processing
+
  
 Data Structures - Fundamentals:
 * Data Structures and Complexity
