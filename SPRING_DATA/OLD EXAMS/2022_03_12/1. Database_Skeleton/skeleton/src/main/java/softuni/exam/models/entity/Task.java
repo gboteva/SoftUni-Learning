@@ -5,9 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Locale;
 
 @Entity
 @Table(name = "tasks")
@@ -65,5 +68,28 @@ public class Task extends BaseEntity{
 
     public void setCar(Car car) {
         this.cars = car;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        DecimalFormat engineFormatter = new DecimalFormat("#####################################.0#");
+        DecimalFormat priceFormatter = new DecimalFormat("#####################################.00");
+        engineFormatter.setDecimalFormatSymbols(DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+        priceFormatter.setDecimalFormatSymbols(DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+
+
+        sb.append(String.format("Car %s %s with %dkm\n" +
+                "-Mechanic: %s %s - task №%d:\n" +
+                " --Engine: %s\n" +
+                "---Price: %s$\n",
+                getCar().getCarMake(), getCar().getCarModel(), getCar().getKilometers(),
+                getMechanic().getFirstName(), getMechanic().getLastName(),
+                getId(),
+                engineFormatter.format(getCar().getEngine()),
+                priceFormatter.format(getPrice())
+                ));
+
+        return sb.toString();
     }
 }

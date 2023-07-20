@@ -10,6 +10,9 @@ import softuni.exam.util.ValidationUtil;
 import softuni.exam.util.XmlParser;
 
 import javax.xml.bind.JAXBException;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -38,7 +41,20 @@ public class CarsServiceImpl implements CarsService {
 
     @Override
     public String readCarsFromFile() throws IOException {
-        return Files.readString(Path.of(CARS_FILE_PATH));
+        File file = new File(CARS_FILE_PATH);
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        StringBuilder sb = new StringBuilder();
+
+        String line = reader.readLine();
+
+        while(line != null) {
+            sb.append(line).append("\n");
+
+            line = reader.readLine();
+        }
+
+        return sb.toString();
+        //return Files.readString(Path.of(CARS_FILE_PATH));
     }
 
     @Override
@@ -65,7 +81,7 @@ public class CarsServiceImpl implements CarsService {
                 }).map(dto -> modelMapper.map(dto, Car.class))
                 .forEach(carsRepository::save);
 
-        return sb.toString().trim();
+        return sb.toString();
     }
 
     @Override

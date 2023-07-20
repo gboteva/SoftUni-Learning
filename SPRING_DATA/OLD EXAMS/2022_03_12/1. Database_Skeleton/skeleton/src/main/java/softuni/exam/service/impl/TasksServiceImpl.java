@@ -7,6 +7,7 @@ import softuni.exam.models.entity.Car;
 import softuni.exam.models.entity.Mechanic;
 import softuni.exam.models.entity.Part;
 import softuni.exam.models.entity.Task;
+import softuni.exam.models.entity.enums.CarType;
 import softuni.exam.repository.TasksRepository;
 import softuni.exam.service.CarsService;
 import softuni.exam.service.MechanicsService;
@@ -16,10 +17,22 @@ import softuni.exam.util.ValidationUtil;
 import softuni.exam.util.XmlParser;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.crypto.Data;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Service
@@ -52,7 +65,20 @@ public class TasksServiceImpl implements TasksService {
 
     @Override
     public String readTasksFileContent() throws IOException {
-        return Files.readString(Path.of(TASKS_FILE_PATH));
+        File file = new File(TASKS_FILE_PATH);
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        StringBuilder sb = new StringBuilder();
+
+        String line = reader.readLine();
+
+        while(line != null) {
+            sb.append(line).append("\n");
+
+            line = reader.readLine();
+        }
+
+        return sb.toString().trim();
+       // return Files.readString(Path.of(TASKS_FILE_PATH));
     }
 
     @Override
@@ -60,13 +86,17 @@ public class TasksServiceImpl implements TasksService {
         StringBuilder sb = new StringBuilder();
 
         TaskRootSeedDto taskRootSeedDto = xmlParser.fromFile(TASKS_FILE_PATH, TaskRootSeedDto.class);
-        List<Task> collect = taskRootSeedDto.getTasks().stream()
+
+        taskRootSeedDto.getTasks().stream()
                 .filter(dto -> {
                     boolean isValid = validationUtil.isValid(dto)
                             && existMechanicWithName(dto.getMechanic().getFirstName())
                             && existCarById(dto.getCar().getId());
                     if (isValid) {
-                        sb.append(String.format("Successfully imported task %.2f", dto.getPrice()));
+                        DecimalFormat formatter = new DecimalFormat("####################.00");
+                        formatter.setDecimalFormatSymbols(DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+
+                        sb.append(String.format("Successfully imported task %s", formatter.format(dto.getPrice())));
                     } else {
                         sb.append("Invalid task");
                     }
@@ -86,12 +116,14 @@ public class TasksServiceImpl implements TasksService {
                     Part part = partsService.getById(dto.getPart().getId());
                     task.setPart(part);
 
+                    LocalDateTime dateTime = LocalDateTime.parse(dto.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                    //task.setDate(dateTime.toLocalDate());
                     return task;
 
                 } )
-                .collect(Collectors.toList());
+                .forEach(tasksRepository::save);
 
-        return null;
+        return sb.toString().trim();
     }
 
     private boolean existCarById(Long id) {
@@ -104,6 +136,9 @@ public class TasksServiceImpl implements TasksService {
 
     @Override
     public String getCoupeCarTasksOrderByPrice() {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        List<Task> tasks = tasksRepository.findAllTasksWithCoupeCar(CarType.coupe);
+        tasks.forEach(sb::append);
+        return sb.toString();
     }
 }

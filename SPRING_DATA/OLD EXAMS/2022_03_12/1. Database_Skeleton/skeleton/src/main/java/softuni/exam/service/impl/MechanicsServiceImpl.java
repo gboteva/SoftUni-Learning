@@ -9,6 +9,9 @@ import softuni.exam.repository.MechanicsRepository;
 import softuni.exam.service.MechanicsService;
 import softuni.exam.util.ValidationUtil;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -39,7 +42,20 @@ public class MechanicsServiceImpl implements MechanicsService {
 
     @Override
     public String readMechanicsFromFile() throws IOException {
-        return Files.readString(Path.of(MECHANICS_FILE_PATH));
+        File file = new File(MECHANICS_FILE_PATH);
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        StringBuilder sb = new StringBuilder();
+
+        String line = reader.readLine();
+
+        while(line != null) {
+            sb.append(line).append("\n");
+
+            line = reader.readLine();
+        }
+
+        return sb.toString().trim();
+        //return Files.readString(Path.of(MECHANICS_FILE_PATH));
     }
 
     @Override
@@ -69,7 +85,7 @@ public class MechanicsServiceImpl implements MechanicsService {
                 .forEach(mechanicsRepository::save);
 
 
-        return sb.toString().trim();
+        return sb.toString();
     }
 
     @Override

@@ -9,11 +9,17 @@ import softuni.exam.repository.PartsRepository;
 import softuni.exam.service.PartsService;
 import softuni.exam.util.ValidationUtil;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 // TODO: Implement all methods
@@ -39,8 +45,21 @@ public class PartsServiceImpl implements PartsService {
 
     @Override
     public String readPartsFileContent() throws IOException {
+        File file = new File(PARTS_FILE_PATH);
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        StringBuilder sb = new StringBuilder();
 
-        return Files.readString(Path.of(PARTS_FILE_PATH));
+        String line = reader.readLine();
+
+        while(line != null) {
+            sb.append(line).append("\n");
+
+            line = reader.readLine();
+        }
+
+        return sb.toString().trim();
+
+        //return Files.readString(Path.of(PARTS_FILE_PATH));
     }
 
     @Override
@@ -56,8 +75,13 @@ public class PartsServiceImpl implements PartsService {
                             && !isExistPartName(dto.getPartName());
 
                     if (isValid) {
-                        sb.append(String.format("Successfully imported part %s - %.2f",
-                                dto.getPartName(), dto.getPrice()));
+
+
+                        DecimalFormat formatter = new DecimalFormat("####################.0#");
+                        formatter.setDecimalFormatSymbols(DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+
+                        sb.append(String.format("Successfully imported part %s - %s",
+                                dto.getPartName(), formatter.format(dto.getPrice())));
                     } else {
                         sb.append("Invalid part");
                     }
@@ -69,7 +93,7 @@ public class PartsServiceImpl implements PartsService {
                 .map(dto -> modelMapper.map(dto, Part.class))
                 .forEach(partsRepository::save);
 
-        return sb.toString().trim();
+        return sb.toString();
     }
 
     @Override
