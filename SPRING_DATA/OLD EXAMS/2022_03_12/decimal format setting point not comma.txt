@@ -1,0 +1,9 @@
+
+DecimalFormat formatter = new DecimalFormat("####################.0#");
+
+formatter.setDecimalFormatSymbols(DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+
+
+sb.append(String.format("Successfully imported part %s - %s",
+                               
+		 dto.getPartName(), formatter.format(dto.getPrice())));
