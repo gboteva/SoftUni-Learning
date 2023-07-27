@@ -31,4 +31,13 @@ public class UserRoleServiceImpl implements UserRoleService {
     public UserRoleEntity findById(Long id) {
         return userRoleRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public UserRoleEntity findByRoleName(String name) {
+        RoleEnum role = name.equalsIgnoreCase("USER")
+                ? RoleEnum.USER
+                : RoleEnum.ADMIN;
+
+        return userRoleRepository.findByName(role);
+    }
 }

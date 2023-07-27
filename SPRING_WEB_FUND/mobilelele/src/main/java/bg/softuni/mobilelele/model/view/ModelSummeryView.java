@@ -1,34 +1,26 @@
-package bg.softuni.mobilelele.model.entity;
+package bg.softuni.mobilelele.model.view;
 
+import bg.softuni.mobilelele.model.entity.BrandEntity;
 import bg.softuni.mobilelele.model.entity.enums.Category;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.ManyToOne;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "models")
-public class ModelEntity extends BaseEntity {
-    @Column(nullable = false, unique = true)
+public class ModelSummeryView {
     private String name;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
     private Category category;
 
-    @Column(length = 512, name = "image_url")
     private String imageUrl;
 
-    @Column(name = "start_year")
     private Integer startYear;
 
-    @Column(name = "end_year")
     private Integer endYear;
-    @Column
-    private LocalDateTime created;
-    @Column
-    private LocalDateTime modified;
-    @ManyToOne
-    private BrandEntity brand;
+
+    private String brandName;
 
     public String getName() {
         return name;
@@ -70,27 +62,11 @@ public class ModelEntity extends BaseEntity {
         this.endYear = endYear;
     }
 
-    public LocalDateTime getCreated() {
-        return created;
+    public String getBrandName() {
+        return brandName;
     }
 
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
-    }
-
-    public LocalDateTime getModified() {
-        return modified;
-    }
-
-    public void setModified(LocalDateTime modified) {
-        this.modified = modified;
-    }
-
-    public BrandEntity getBrand() {
-        return brand;
-    }
-
-    public void setBrand(BrandEntity brand) {
-        this.brand = brand;
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
     }
 }

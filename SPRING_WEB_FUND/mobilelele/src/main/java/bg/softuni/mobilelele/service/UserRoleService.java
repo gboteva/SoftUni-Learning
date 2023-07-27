@@ -5,4 +5,6 @@ import bg.softuni.mobilelele.model.entity.UserRoleEntity;
 public interface UserRoleService {
     void populateRoles();
     UserRoleEntity findById(Long id);
+
+    UserRoleEntity findByRoleName(String name);
 }

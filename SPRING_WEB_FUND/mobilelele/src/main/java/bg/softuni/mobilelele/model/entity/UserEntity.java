@@ -3,6 +3,7 @@ package bg.softuni.mobilelele.model.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -27,8 +28,8 @@ public class UserEntity extends BaseEntity {
     @Column
     private LocalDateTime modified;
 
-    @ManyToOne
-    private UserRoleEntity role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<UserRoleEntity> roles;
 
     public String getUsername() {
         return username;
@@ -94,11 +95,11 @@ public class UserEntity extends BaseEntity {
         this.modified = modified;
     }
 
-    public UserRoleEntity getRole() {
-        return role;
+    public Set<UserRoleEntity> getRoles() {
+        return roles;
     }
 
-    public void setRole(UserRoleEntity role) {
-        this.role = role;
+    public void setRoles(Set<UserRoleEntity> roles) {
+        this.roles = roles;
     }
 }
