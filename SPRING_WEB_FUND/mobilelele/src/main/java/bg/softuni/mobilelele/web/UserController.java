@@ -5,15 +5,18 @@ import bg.softuni.mobilelele.model.binding.UserLoginBindingModel;
 import bg.softuni.mobilelele.model.service.UserLoginServiceModel;
 import bg.softuni.mobilelele.model.service.UserRegisterServiceModel;
 import bg.softuni.mobilelele.service.UserService;
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
 
@@ -71,20 +74,20 @@ public class UserController {
     }
 
     @PostMapping("users/register")
-    public String register(RegisterBindingModel userModel, Model model){
-        //TODO Validation
+    public String register(@Valid RegisterBindingModel userModel, Model model,
+                           BindingResult bindingResult,
+                           RedirectAttributes redirectAttributes){
 
-        boolean isUsernameFree = userService.isUsernameFree(userModel.getUsername());
-        if (!isUsernameFree){
-            model.addAttribute("usernameNotFree", true);
-            //todo add flash attribute
-            return "redirect: users/register";
+        if (bindingResult.hasErrors()){
+            redirectAttributes.addFlashAttribute("userModel", userModel);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userModel", bindingResult);
+
+            return "redirect:/users/register";
         }
 
         UserRegisterServiceModel userServiceModel = modelMapper.map(userModel, UserRegisterServiceModel.class);
 
         userService.registerAndLoginUser(userServiceModel);
-        model.addAttribute("usernameNotFree", false);
 
         return "redirect:/";
     }

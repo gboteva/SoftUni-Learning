@@ -79,4 +79,20 @@ public class ModelServiceImpl implements ModelService {
         return allModelEntities.stream().map(modelEntity -> modelMapper.map(modelEntity, ModelSummeryView.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public boolean existsByModel(String model) {
+       return modelRepository.existsByName(model);
+    }
+
+    @Override
+    public void save(ModelEntity model) {
+        modelRepository.save(model);
+    }
+
+    @Override
+    public ModelEntity findByName(String name) {
+
+       return modelRepository.findByName(name);
+    }
 }

@@ -58,5 +58,21 @@ public class BrandServiceImpl implements BrandService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public boolean existsByBrand(String brand) {
+        return brandRepository.existsByName(brand);
+    }
+
+    @Override
+    public void save(BrandEntity brand) {
+        brandRepository.save(brand);
+    }
+
+    @Override
+    public BrandEntity findByName(String name) {
+
+        return brandRepository.findByName(name);
+    }
+
 
 }

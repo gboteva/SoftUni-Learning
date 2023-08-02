@@ -11,4 +11,10 @@ public interface BrandService {
     BrandEntity findById(Long id);
 
     List<BrandSummeryView> getAll();
+
+    boolean existsByBrand(String brand);
+
+    void save(BrandEntity brand);
+
+    BrandEntity findByName(String name);
 }

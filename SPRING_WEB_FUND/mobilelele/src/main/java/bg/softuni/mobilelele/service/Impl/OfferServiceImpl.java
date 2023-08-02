@@ -1,14 +1,23 @@
 package bg.softuni.mobilelele.service.Impl;
 
+import bg.softuni.mobilelele.model.binding.UpdateOfferBindingModel;
+import bg.softuni.mobilelele.model.entity.BrandEntity;
+import bg.softuni.mobilelele.model.entity.ModelEntity;
 import bg.softuni.mobilelele.model.entity.OfferEntity;
+import bg.softuni.mobilelele.model.entity.enums.Category;
 import bg.softuni.mobilelele.model.entity.enums.EngineEnum;
 import bg.softuni.mobilelele.model.entity.enums.TransmissionEnum;
+import bg.softuni.mobilelele.model.service.AddOfferServiceModel;
+import bg.softuni.mobilelele.model.service.UpdateOfferServiceModel;
 import bg.softuni.mobilelele.model.view.OfferDetailsView;
 import bg.softuni.mobilelele.repository.OfferRepository;
+import bg.softuni.mobilelele.service.BrandService;
 import bg.softuni.mobilelele.service.ModelService;
 import bg.softuni.mobilelele.service.OfferService;
 import bg.softuni.mobilelele.model.view.OfferSummeryView;
 import bg.softuni.mobilelele.service.UserService;
+import bg.softuni.mobilelele.web.exceptions.ObjectAlreadyExistsException;
+import bg.softuni.mobilelele.web.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -24,12 +33,14 @@ public class OfferServiceImpl implements OfferService {
     private final ModelMapper modelMapper;
     private final ModelService modelService;
     private final UserService userService;
+    private final BrandService brandService;
 
-    public OfferServiceImpl(OfferRepository offerRepository, ModelMapper modelMapper, ModelService modelService, UserService userService) {
+    public OfferServiceImpl(OfferRepository offerRepository, ModelMapper modelMapper, ModelService modelService, UserService userService, BrandService brandService) {
         this.offerRepository = offerRepository;
         this.modelMapper = modelMapper;
         this.modelService = modelService;
         this.userService = userService;
+        this.brandService = brandService;
     }
 
     @Override
@@ -60,7 +71,7 @@ public class OfferServiceImpl implements OfferService {
         offer2.setModel(modelService.findById(2L));
         offer2.setPrice(BigDecimal.valueOf(150000L));
         offer2.setTransmission(TransmissionEnum.AUTOMATIC);
-        offer2.setSeller(userService.findById(4L));
+        offer2.setSeller(userService.findById(3L));
 
         OfferEntity offer3 = new OfferEntity();
         offer3.setYear(2021);
@@ -93,6 +104,66 @@ public class OfferServiceImpl implements OfferService {
         mapped.setSeller(offerEntity.get().getSeller());
 
         return mapped;
+    }
+
+    @Override
+    public void deleteOffer(Long id) {
+        offerRepository.deleteById(id);
+    }
+
+    @Override
+    public UpdateOfferBindingModel findById(Long id) {
+
+        UpdateOfferBindingModel offer = modelMapper.map(offerRepository.findById(id), UpdateOfferBindingModel.class);
+
+        return offer;
+    }
+
+    @Override
+    public void updateOffer(UpdateOfferServiceModel updateServiceModel) {
+       OfferEntity offerEntity = offerRepository.findById(updateServiceModel.getId())
+               .orElseThrow(() -> new ObjectNotFoundException("Offer with id " + updateServiceModel.getId() + " not found!"));
+
+        offerEntity.setPrice(updateServiceModel.getPrice());
+        offerEntity.setMileage(updateServiceModel.getMileage());
+        offerEntity.setYear(updateServiceModel.getYear());
+        offerEntity.setDescription(updateServiceModel.getDescription());
+        offerEntity.setEngine(updateServiceModel.getEngine());
+        offerEntity.setTransmission(updateServiceModel.getTransmission());
+
+
+        offerRepository.save(offerEntity);
+    }
+
+    @Override
+    public void addOffer(AddOfferServiceModel addOfferModel) {
+        if (!brandService.existsByBrand(addOfferModel.getBrand())){
+            BrandEntity brand = new BrandEntity();
+            brand.setName(addOfferModel.getBrand());
+            brand.setCreated(LocalDateTime.now());
+
+            brandService.save(brand);
+        }
+
+        if (!modelService.existsByModel(addOfferModel.getModel())){
+            ModelEntity model = new ModelEntity();
+            model.setName(addOfferModel.getModel());
+            model.setBrand(brandService.findByName(addOfferModel.getBrand()));
+            model.setCategory(addOfferModel.getCategory());
+            model.setImageUrl(addOfferModel.getImageUrl());
+            modelService.save(model);
+        }
+
+
+        OfferEntity offer = modelMapper.map(addOfferModel, OfferEntity.class);
+
+        offer.setModel(modelService.findByName(addOfferModel.getModel()));
+
+        offer.setSeller(userService.findById(4));
+
+        offer.setCreated(LocalDateTime.now());
+
+        offerRepository.save(offer);
     }
 
     private OfferSummeryView map(OfferEntity offer) {

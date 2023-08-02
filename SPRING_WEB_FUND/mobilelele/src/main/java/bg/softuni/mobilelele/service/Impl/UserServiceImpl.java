@@ -51,6 +51,17 @@ public class UserServiceImpl implements UserService {
             user.setRoles(Set.of(userRoleService.findById(1L)));
 
             userRepository.save(user);
+
+
+            UserEntity galka = new UserEntity();
+            galka.setUsername("galkab");
+            galka.setPassword(passwordEncoder.encode("test"));
+            galka.setFirstName("Galka");
+            galka.setLastName("Boteva");
+            galka.setActive(true);
+            galka.setCreated(LocalDateTime.now());
+            galka.setRoles(Set.of(userRoleService.findById(1L)));
+            userRepository.save(galka);
         }
     }
 
@@ -106,7 +117,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity findById(long id) {
-
       return userRepository.findById(id).orElse(null);
     }
 

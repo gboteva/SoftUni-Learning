@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head::head"></head>
+<head th:replace="~{fragments/head::head}"></head>
 
 <body>
 
-<div th:replace="fragments/navbar :: navbar"></div>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
 
 
 <div class="container-fluid">
@@ -14,9 +14,10 @@
         <div class="offer card col-sm-2 col-md-3  col-lg-4 m-1 p-0">
 
             <div class="card-body pb-1">
-                <h5 class="card-title" th:text="'Offer ' + *{getYear() + ' ' + getModel().getBrand().getName() + ' ' + getModel().getName()}">
+                <h5 class="card-title" th:text="'Offer ' + *{year + ' ' + model.brand.name + ' ' + model.name}">
                     Offer year Brand name Model name</h5>
             </div>
+
             <ul class="offer-details list-group list-group-flush">
                 <li class="list-group-item">
                     <div class="card-text"><span th:text="*{mileage}">• Mileage</span></div>
@@ -25,17 +26,23 @@
                     <div class="card-text"><span th:text="*{transmission.name()}">• Transmission type</span></div>
                     <div class="card-text"><span th:text="*{created}">• Offer created</span></div>
                     <div class="card-text"><span th:text="*{modified}">• Offer modified</span></div>
-                    <div class="card-text"><span th:text="*{seller.firstName + ' ' + seller.lastName}">• Seller - First and Last name</span></div>
+                    <div class="card-text"><span th:text="*{seller.firstName + ' ' + seller.lastName}" >• Seller - First and Last name</span></div>
                 </li>
             </ul>
             <div class="card-body">
-                <a class="card-link" href="/">Update</a>
-                <a class="card-link" href="/">Delete</a>
+                <div class = "row">
+                    <a class="btn btn-link" th:href="@{/offers/{id}/edit (id = *{id})}">Update</a>
+
+                    <form th:action="@{/offers/{id} (id = *{id})}" th:method="delete">
+                        <input type="submit" class="btn btn-link" value="Delete"></input>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="offer card col-sm-2 col-md-3  col-lg-4 m-1 p-0">
             <img th:src="*{getImageUrl()}" class="card-img-top"  alt="Car image">
         </div>
+
     </div>
 </div>
 

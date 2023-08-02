@@ -11,4 +11,11 @@ public interface ModelService {
     ModelEntity findById(long id);
 
     List<ModelSummeryView> getAll();
+
+
+    boolean existsByModel(String model);
+
+    void save(ModelEntity model);
+
+    ModelEntity findByName(String name);
 }
