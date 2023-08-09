@@ -7,16 +7,17 @@ import jakarta.validation.constraints.Size;
 
 public class RegisterBindingModel {
     @NotNull
-    @Size(min = 4, max = 20)
+    @Size(min = 4, max = 20, message = "Invalid first name")
     private String firstName;
 
     @NotNull
-    @Size(min = 4, max = 20)
+    @Size(min = 4, max = 20, message = "Invalid last name")
     private String lastName;
     @UniqueUsername
+    @Size(min = 2, max = 20, message = "Invalid username")
     private String username;
     @NotNull
-    @Size(min = 4, max = 20)
+    @Size(min = 4, max = 20, message = "Invalid password")
     private String password;
     private String role;
 
